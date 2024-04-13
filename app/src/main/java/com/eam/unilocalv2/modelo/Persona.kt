@@ -1,4 +1,4 @@
 package com.eam.unilocalv2.modelo
 
-class Persona {
+open class Persona(var id:Int, var nombre:String, var correo:String, var password:String) {
 }

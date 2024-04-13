@@ -1,4 +1,7 @@
 package com.eam.unilocalv2.modelo
 
-class EstadoLugar {
+enum class EstadoLugar {
+    ACEPTADO,
+    RECHAZADO,
+    SIN_REVISAR
 }

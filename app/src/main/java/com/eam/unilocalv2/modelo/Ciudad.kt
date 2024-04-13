@@ -1,4 +1,5 @@
 package com.eam.unilocalv2.modelo
 
-class Ciudad {
+class Ciudad (var id: String, var nombre: String) {
+
 }

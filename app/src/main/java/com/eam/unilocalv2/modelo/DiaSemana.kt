@@ -1,4 +1,11 @@
 package com.eam.unilocalv2.modelo
 
-class DiaSemana {
+enum class DiaSemana {
+    DOMINGO,
+    LUNES,
+    MARTES,
+    MIERCOLES,
+    JUEVES,
+    VIERNES,
+    SABADO
 }

@@ -1,4 +1,6 @@
 package com.eam.unilocalv2.modelo
 
-class RegistroEstadoLugar {
+class RegistroEstadoLugar (var estadoAnterior: EstadoLugar = EstadoLugar.SIN_REVISAR,
+                           var nuevoEstado: EstadoLugar = EstadoLugar.SIN_REVISAR,
+                           var lugar: Lugar){
 }
