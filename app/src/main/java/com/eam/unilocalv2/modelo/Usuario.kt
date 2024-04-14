@@ -5,4 +5,5 @@ class Usuario (id: Int, nombre: String, var nickname: String, var ciudad: String
     var busquedasRecientes: ArrayList<String> = ArrayList()
     var lugaresFavoritos:ArrayList<String> = ArrayList()
 
+    //Hola
 }
