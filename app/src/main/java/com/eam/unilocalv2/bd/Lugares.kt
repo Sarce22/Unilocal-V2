@@ -20,7 +20,7 @@ object Lugares {
         tels.add("7828789")
         tels.add("7464657")
 
-        val lugar1 = Lugar("La sabrosura del mar", "La mejor comida que podrás encontrar", 1, EstadoLugar.ACEPTADO, 3, "Calle 123", Posicion(4.5106545,-75.7050586), 1)
+        val lugar1 = Lugar("La sabrosura del mar", "La mejor comida que podrás encontrar", 1, EstadoLugar.SIN_REVISAR, 3, "Calle 123", Posicion(4.5106545,-75.7050586), 1)
         lugar1.id = 1
         lugar1.horarios.add(horario2)
 
@@ -29,7 +29,7 @@ object Lugares {
         lugar2.telefonos = tels
         lugar2.horarios.add(horario1)
 
-        val lugar3 = Lugar("Perros el pri", "Comida rapida para todos", 3, EstadoLugar.ACEPTADO, 3, "Calle 452", Posicion(4.5057171,-75.7022026), 5)
+        val lugar3 = Lugar("Perros el pri", "Comida rapida para todos", 3, EstadoLugar.SIN_REVISAR, 3, "Calle 452", Posicion(4.5057171,-75.7022026), 5)
         lugar3.id = 3
         lugar3.horarios.add(horario1)
 

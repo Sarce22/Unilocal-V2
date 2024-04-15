@@ -128,7 +128,7 @@
 
 
     <!-- Activity mod main -->
-    <string name="txt_moderar">Moderar</string>
+    <string name="txt_moderar">Administrador</string>
 
 
 </resources>
