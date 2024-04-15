@@ -1,3 +1,58 @@
 <resources>
-    <string name="app_name">UnilocalV2</string>
+    <string name="app_name">Unilocal</string>
+    <string name="txt_ingrese_correo">Ingrese su correo</string>
+    <string name="txt_ingrese_contrasenia">Ingrese su contraseña</string>
+    <string name="btn_login">Login</string>
+    <string name="lbl_inicia_con">O inicia con</string>
+    <string name="btn_goole">Google</string>
+    <string name="lbl_registro">Todavía no tienes una cuenta</string>
+    <string name="lbl_password">¡Olvidaste tu contraseña?</string>
+    <string name="lbl_registrate">Regístrate aquí</string>
+    <string name="lbl_iniciar_sesion">Iniciar sesión</string>
+    <string name="lbl_recuperar">Recuperala aquí</string>
+
+    <!-- Campos Registro -->
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="nickname">NickName</string>
+    <string name="Correo">Correo electrónico</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="confimarContrasenia">Confirmar contraseña</string>
+    <string name="numCelular">Número de teléfono</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="btn_registro">Registrar</string>
+    <string name="hora_de_inicio">Hora de inicio</string>
+    <string name="hora_de_cierre">Hora de cierre</string>
+    <string name="martes">Martes:</string>
+    <string name="lunes">Lunes:</string>
+    <string name="miercoles">Miercoles</string>
+    <string name="nombre_del_lugar">Nombre del Lugar</string>
+    <string name="direccion">Dirección:</string>
+    <string name="ingrese_la_direccion">Ingrese la dirección</string>
+    <string name="telefono">Teléfono:</string>
+    <string name="ingrese_el_telefono">Ingrese el teléfono</string>
+    <string name="viernes">Viernes</string>
+    <string name="guardar_lugar">Guardar Lugar</string>
+    <string name="jueves">Jueves</string>
+
+    <string name="informacion_personal">Información personal</string>
+    <string name="notificacion">Notificación</string>
+    <string name="mis_lugares">Mis lugares</string>
+    <string name="guardados">Guardados</string>
+    <string name="editar">editar</string>
+    <string name="perfil_usuario">Perfil usuario</string>
+    <string name="ir_a_login">Ir a login</string>
+
+    <!-- Textos de validaciones -->
+    <string name="es_obligatorio">Este campo es obligatorio</string>
+    <string name="maximo_caracteres">Máximo 10 caracteres</string>
+    <string name="datos_correctos">Los datos son correctos</string>
+    <string name="datos_incorrectos">Los datos son incorrectos</string>
+
+    <string name="campo_obligatorio">Campo obligatorio</string>
+    <string name="registrado_exitosamente">Registrado exitosamente</string>
+    <string name="no_se_pudo_registrar">No se pudo registrar</string>
+    <string name="la_contrasena_ingresada_no_coincide">La contraseña ingresada no coincide</string>
+
+
 </resources>
