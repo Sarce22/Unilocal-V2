@@ -32,5 +32,4 @@ object Usuarios {
         return usuarios.firstOrNull { u -> u.id == id }
     }
 
-
 }

@@ -1,21 +1,74 @@
 package com.eam.unilocalv2.adapter
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.eam.unilocalv2.R
+import com.eam.unilocalv2.actividades.ModDetalleLugarActivity
+import com.eam.unilocalv2.actividades.ModMainActivity
+import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.modelo.EstadoLugar
+import com.eam.unilocalv2.modelo.Lugar
 
-class LugaresModAdapter : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_lugares_mod_adapter)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+class LugaresModAdapter(var lista: ArrayList<Lugar>): RecyclerView.Adapter<LugaresModAdapter.ViewHolder>() {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_lugar_mod, parent, false)
+        return ViewHolder(v)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind( lista[position] )
+    }
+
+    override fun getItemCount() = lista.size
+
+    inner class ViewHolder(var itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+        val nombre: TextView = itemView.findViewById(R.id.nombre_lugar)
+        val btnAprobar: TextView = itemView.findViewById(R.id.btn_aprobar)
+        val btnRechazar: TextView = itemView.findViewById(R.id.btn_rechazar)
+        var codigoLugar: Int = -1
+
+        init {
+            itemView.setOnClickListener(this)
         }
+
+        fun bind(lugar: Lugar){
+            codigoLugar = lugar.id
+            nombre.text = lugar.nombre
+            btnAprobar.setOnClickListener {
+                lugar.estado = EstadoLugar.ACEPTADO
+                Lugares.agregarRegistro(lugar, EstadoLugar.ACEPTADO)
+                lista.remove(lugar)
+                ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
+            }
+            btnRechazar.setOnClickListener {
+                lugar.estado = EstadoLugar.RECHAZADO
+                Lugares.agregarRegistro(lugar, EstadoLugar.RECHAZADO)
+                lista.remove(lugar)
+                ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
+            }
+        }
+
+        override fun onClick(p0: View?) {
+            //Enviar al lugar
+            if(codigoLugar != -1){
+                var intent = Intent(nombre.context, ModDetalleLugarActivity::class.java)
+                intent.putExtra("codigo", codigoLugar)
+                nombre.context.startActivity(intent)
+            }
+        }
+
     }
 }

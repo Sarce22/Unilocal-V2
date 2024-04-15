@@ -1,21 +1,34 @@
 package com.eam.unilocalv2.fragmentos
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.eam.unilocalv2.R
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.eam.unilocalv2.adapter.RegistroLugaresModAdapter
+import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.databinding.FragmentModRegistroLugaresBinding
+import com.eam.unilocalv2.modelo.RegistroEstadoLugar
 
-class ModRegistroLugaresFragment : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_mod_registro_lugares_fragment)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+class ModRegistroLugaresFragment : Fragment() {
+
+    lateinit var binding: FragmentModRegistroLugaresBinding
+    private var lista : ArrayList<RegistroEstadoLugar> = ArrayList()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentModRegistroLugaresBinding.inflate(inflater, container, false)
+
+        lista = Lugares.obtenerRegistros()
+        val adapter = RegistroLugaresModAdapter(lista)
+        binding.registroLugares.adapter = adapter
+        binding.registroLugares.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, true)
+
+        return binding.root
     }
+
 }
