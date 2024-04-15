@@ -54,7 +54,7 @@
             android:name=".fragmentos.BuscadorFragment"
             android:exported="false" />
         <activity
-            android:name=".adapter.ViewPagerMod"
+            android:name=".adapter.ViewPagerAdapterMod"
             android:exported="false" />
         <activity
             android:name=".adapter.ViewPagerAdapterLugarMod"
