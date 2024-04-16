@@ -17,20 +17,21 @@ import com.eam.unilocalv2.actividades.BusquedaActivity
 import com.eam.unilocalv2.actividades.MainActivity
 import com.eam.unilocalv2.adapter.LugarAdapter
 import com.eam.unilocalv2.bd.Lugares
-import com.eam.unilocalv2.databinding.FragmentMisLugaresBinding
+import com.eam.unilocalv2.databinding.FragmentFavoritosBinding
 import com.eam.unilocalv2.modelo.Lugar
 
-class MisLugaresFragment : Fragment() {
+class FavoritosFragment : Fragment() {
 
-    lateinit var binding: FragmentMisLugaresBinding
+    lateinit var binding: FragmentFavoritosBinding
     private var lista : ArrayList<Lugar> = ArrayList()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMisLugaresBinding.inflate(inflater, container, false)
+        binding = FragmentFavoritosBinding.inflate(inflater, container, false)
 
         binding.btnVolver.setOnClickListener{ requireActivity().supportFragmentManager.beginTransaction().replace( R.id.contenido_principal, InicioFragment() )
             .addToBackStack(MainActivity.MENU_INICIO).commit()
@@ -38,19 +39,16 @@ class MisLugaresFragment : Fragment() {
 
         binding.btnSearch.setOnClickListener { startActivity(Intent(requireActivity(), BusquedaActivity::class.java)) }
 
-        binding.btnNuevoLugar.setOnClickListener { requireActivity().supportFragmentManager.beginTransaction().replace( R.id.contenido_principal, CrearLugarFragment() )
-            .addToBackStack(MainActivity.MENU_CREAR_LUGAR).commit() }
-
         val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
         val codigoUsuario = sp.getInt("codigo_usuario", -1)
         if(codigoUsuario != -1){
-            lista = Lugares.listarPorPropietario(codigoUsuario)
+            lista = Lugares.obtenerFavoritos(codigoUsuario)
+
             val adapter = LugarAdapter(lista, codigoUsuario)
-            binding.listaMisLugares.adapter = adapter
-            binding.listaMisLugares.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+            binding.listaMisFavoritos.adapter = adapter
+            binding.listaMisFavoritos.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
         }
 
         return binding.root
     }
-
 }
