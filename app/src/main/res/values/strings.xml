@@ -87,6 +87,21 @@
     <!-- item registro lugar mod -->
     <string name="txt_estado">ESTADO</string>
 
+    <!-- Activity_busqueda -->
+    <string name="txt_restaurante">Restaurante</string>
+    <string name="txt_hotel">Hotel</string>
+    <string name="txt_centro_comercial">Centro comercial</string>
+    <string name="txt_tienda">Tienda</string>
+    <string name="txt_bar">Bar</string>
+    <string name="txt_cafe">Café</string>
+    <string name="txt_parque">Parque</string>
+    <string name="txt_museo">Museo</string>
+
+    <!-- fragment busquedas recientes -->
+    <string name="txt_recientes">Recientes</string>
+
+    <!-- item reciente -->
+    <string name="txt_reciente">Reciente</string>
 
     <!-- icons -->
     <string name="icon_uf0ac">\uf0ac</string>

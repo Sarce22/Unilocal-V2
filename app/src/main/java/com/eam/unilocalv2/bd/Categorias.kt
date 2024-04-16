@@ -24,4 +24,5 @@ object Categorias {
     fun obtener(id: Int): Categoria? {
         return categorias.firstOrNull { c -> c.id == id }
     }
+
 }
