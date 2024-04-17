@@ -9,7 +9,7 @@ class Lugar(var nombre:String,
             var estado:EstadoLugar,
             var idCategoria:Int,
             var direccion:String,
-            var posicion: Posicion,
+
             var idCiudad:Int
 ) {
     var id: Int = 0
@@ -65,7 +65,7 @@ class Lugar(var nombre:String,
     }
 
     override fun toString(): String {
-        return "Lugar(id=$id, nombre='$nombre', descripcion='$descripcion', idCreador=$idCreador, estado=$estado, idCategoria=$idCategoria,posicion=$posicion, idCiudad=$idCiudad, imagenes=$imagenes, telefonos=$telefonos, fecha=$fecha, horarios=$horarios)"
+        return "Lugar(id=$id, nombre='$nombre', descripcion='$descripcion', idCreador=$idCreador, estado=$estado, idCategoria=$idCategoria,idCiudad=$idCiudad, imagenes=$imagenes, telefonos=$telefonos, fecha=$fecha, horarios=$horarios)"
     }
 
 }
