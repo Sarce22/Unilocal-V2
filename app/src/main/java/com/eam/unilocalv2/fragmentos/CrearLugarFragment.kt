@@ -10,20 +10,15 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.actividades.BusquedaActivity
 import com.eam.unilocalv2.actividades.MainActivity
 import com.eam.unilocalv2.bd.Categorias
 import com.eam.unilocalv2.bd.Ciudades
 import com.eam.unilocalv2.bd.Lugares
-import com.eam.unilocalv2.databinding.ActivityCrearLugarFragmentBinding
 import com.eam.unilocalv2.databinding.FragmentCrearLugarBinding
 import com.eam.unilocalv2.modelo.Categoria
 import com.eam.unilocalv2.modelo.Ciudad
@@ -158,12 +153,12 @@ class CrearLugarFragment : Fragment() {
             binding.telefonoLayout.error = null
         }
 
-        if(nombre.isNotEmpty() && descripcion.isNotEmpty() && telefono.isNotEmpty() && direccion.isNotEmpty() && idCiudad != -1 && idCategoria != -1 && posicion != null) {
+        if(nombre.isNotEmpty() && descripcion.isNotEmpty() && telefono.isNotEmpty() && direccion.isNotEmpty() && idCiudad != -1 && idCategoria != -1) {
 
             val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
             val codigoUsuario = sp.getInt("codigo_usuario", -1)
             if(codigoUsuario != -1){
-                val nuevoLugar = Lugar(nombre, descripcion, codigoUsuario, EstadoLugar.SIN_REVISAR, idCategoria, direccion,posicion!! , idCiudad)
+                val nuevoLugar = Lugar(nombre, descripcion, codigoUsuario, EstadoLugar.SIN_REVISAR, idCategoria, direccion, idCiudad)
 
                 val telefonos: ArrayList<String> = ArrayList()
                 telefonos.add(telefono)
