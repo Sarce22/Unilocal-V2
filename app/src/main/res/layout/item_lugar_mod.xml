@@ -37,13 +37,13 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="7dp"
             android:fontFamily="@font/font_awesome_6_free_solid_900"
-            android:text="@string/icon_uf017"
-            android:textColor="@color/design_default_color_secondary"
+            android:drawableLeft="@drawable/ic_eye_32"
             android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
             android:orientation="horizontal"
             android:layout_below="@id/nombre_lugar"
             android:layout_alignParentEnd="true">
@@ -52,20 +52,18 @@
                 android:id="@+id/btn_aprobar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="20dp"
                 android:textSize="30sp"
-                android:textColor="@color/green"
-                android:text="@string/icon_uf058"
+                android:drawableLeft="@drawable/ic_like_24"
                 android:fontFamily="@font/font_awesome_6_free_solid_900"/>
 
             <TextView
                 android:id="@+id/btn_rechazar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="10dp"
                 android:textSize="30sp"
-                android:textColor="@color/red"
-                android:text="@string/icon_uf057"
+                android:drawableLeft="@drawable/ic_dislike_24"
                 android:fontFamily="@font/font_awesome_6_free_solid_900"/>
 
         </LinearLayout>

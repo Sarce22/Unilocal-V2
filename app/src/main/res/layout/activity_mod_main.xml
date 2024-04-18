@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/icon_uf359"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="15dp"
                 android:textSize="30sp"
                 android:layout_marginEnd="5dp"
                 android:layout_centerVertical="true"

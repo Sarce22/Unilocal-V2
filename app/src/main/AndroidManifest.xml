@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnilocalV2"
         tools:targetApi="31">
+
         <activity
             android:name=".fragmentos.CrearLugarFragment"
             android:exported="false"
@@ -19,7 +20,6 @@
         <activity
             android:name=".fragmentos.FavoritosFragment"
             android:exported="false" />
-
 
         <activity
             android:name=".fragmentos.ResultadoBusquedaFragment"
@@ -46,7 +46,7 @@
             android:name=".fragmentos.ComentariosLugarFragment"
             android:exported="false" />
         <activity
-            android:name=".fragmentos.ComentariosGestionarLugarfragment"
+            android:name=".fragmentos.ComentariosGestionarLugarFragment"
             android:exported="false" />
         <activity
             android:name=".fragmentos.ComentarFragment"
@@ -97,7 +97,7 @@
             android:name=".actividades.ModDetalleLugarActivity"
             android:exported="false" />
         <activity
-            android:name=".actividades.GestinarLugarActivity"
+            android:name=".actividades.GestionarLugarActivity"
             android:exported="false" />
         <activity
             android:name=".actividades.DetalleLugarActivity"

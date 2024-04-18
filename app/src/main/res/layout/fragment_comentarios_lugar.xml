@@ -59,7 +59,7 @@
                         android:padding="10dp"
                         android:text="@string/txt_0"
                         android:textColor="@color/black"
-                        android:textSize="50sp"
+                        android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -74,7 +74,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/font_awesome_6_free_solid_900"
                             android:text="@string/icon_uf005"
-                            android:textSize="35sp" />
+                            android:textSize="25sp" />
 
                         <TextView
                             android:id="@+id/e_2"
@@ -82,7 +82,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/font_awesome_6_free_solid_900"
                             android:text="@string/icon_uf005"
-                            android:textSize="35sp" />
+                            android:textSize="25sp" />
 
                         <TextView
                             android:id="@+id/e_3"
@@ -90,7 +90,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/font_awesome_6_free_solid_900"
                             android:text="@string/icon_uf005"
-                            android:textSize="35sp" />
+                            android:textSize="25sp" />
 
                         <TextView
                             android:id="@+id/e_4"
@@ -98,7 +98,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/font_awesome_6_free_solid_900"
                             android:text="@string/icon_uf005"
-                            android:textSize="35sp" />
+                            android:textSize="25sp" />
 
                         <TextView
                             android:id="@+id/e_5"
@@ -106,7 +106,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/font_awesome_6_free_solid_900"
                             android:text="@string/icon_uf005"
-                            android:textSize="35sp" />
+                            android:textSize="25sp" />
 
                     </LinearLayout>
 
@@ -121,26 +121,29 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_comentarios"
-                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
                     android:padding="10dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black" />
+                    android:text="@string/txt_comentarios"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btn_calificar"
-                    android:layout_width="180dp"
+                    android:layout_width="160dp"
                     android:layout_height="45dp"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="50dp"
                     android:layout_marginBottom="5dp"
-                    android:text="@string/txt_calificar_y_comentar" />
+                    android:backgroundTint="@color/purple"
+                    android:text="@string/txt_calificar" />
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
