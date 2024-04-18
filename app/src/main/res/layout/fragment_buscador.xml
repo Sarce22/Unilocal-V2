@@ -31,7 +31,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@null"
-            android:src="@drawable/ic_home_50"/>
+            android:src="@drawable/ic_exit_run"/>
 
     </LinearLayout>
 

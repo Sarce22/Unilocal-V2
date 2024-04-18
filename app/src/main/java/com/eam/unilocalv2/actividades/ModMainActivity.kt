@@ -33,7 +33,7 @@ class ModMainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabs, binding.viewPager){tab, pos ->
             when (pos){
                 0 -> tab.text = getString(R.string.lugares)
-                1 -> tab.text = getString(R.string.registro)
+                1 -> tab.text = getString(R.string.historial)
             }
         }.attach()
 

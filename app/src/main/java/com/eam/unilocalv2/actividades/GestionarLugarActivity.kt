@@ -62,15 +62,6 @@ class GestionarLugarActivity : AppCompatActivity() {
                 this.finish()
             }
 
-            //Icono estado
-            if(lugar.estado == EstadoLugar.ACEPTADO){
-                binding.estado.text = "\uf058"
-                binding.estado.setTextColor(ContextCompat.getColor(baseContext, R.color.green))
-            } else if(lugar.estado == EstadoLugar.RECHAZADO){
-                binding.estado.text = "\uf057"
-                binding.estado.setTextColor(ContextCompat.getColor(baseContext, R.color.red))
-            }
-
             //Adapter
             binding.viewPager.adapter = ViewPagerAdapterGestionarLugar(this, codigoLugar)
             TabLayoutMediator(binding.tabs, binding.viewPager){ tab, pos ->

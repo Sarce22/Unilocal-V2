@@ -59,6 +59,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </LinearLayout>
 
 
@@ -91,11 +92,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
-                        android:text="@string/icon_uf2e7"
+                        android:drawableLeft="@drawable/ic_restaurante"
                         android:fontFamily="@font/font_awesome_6_free_solid_900" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:text="@string/txt_restaurante" />
                 </LinearLayout>
@@ -116,11 +118,13 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:text="@string/icon_uf594"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/font_awesome_6_free_solid_900" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         android:text="@string/txt_hotel" />
                 </LinearLayout>
 
@@ -140,11 +144,13 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:text="@string/icon_uf54e"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/font_awesome_6_free_solid_900" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         android:text="@string/txt_centro_comercial" />
                 </LinearLayout>
 
@@ -164,11 +170,13 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:text="@string/icon_uf07a"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/font_awesome_6_free_solid_900" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         android:text="@string/txt_tienda" />
                 </LinearLayout>
 
@@ -187,12 +195,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
-                        android:text="@string/icon_uf0fc"
+                        android:drawableLeft="@drawable/ic_bar"
                         android:fontFamily="@font/font_awesome_6_free_solid_900" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         android:text="@string/txt_bar" />
                 </LinearLayout>
 
@@ -212,11 +221,13 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:text="@string/icon_uf7b6"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/font_awesome_6_free_solid_900" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         android:text="@string/txt_cafe" />
                 </LinearLayout>
 
@@ -236,11 +247,13 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:text="@string/icon_uf1bb"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/font_awesome_6_free_solid_900" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         android:text="@string/txt_parque" />
                 </LinearLayout>
 
@@ -260,11 +273,13 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:text="@string/icon_uf66f"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/font_awesome_6_free_solid_900" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         android:text="@string/txt_museo" />
                 </LinearLayout>
 

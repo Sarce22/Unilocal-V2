@@ -13,6 +13,7 @@
         <ImageView
             android:id="@+id/img_usuario"
             android:layout_width="wrap_content"
+            android:layout_marginStart="15dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_person_outline_40" />
@@ -20,6 +21,7 @@
             android:id="@+id/nombre_usuario_comentario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:text="@string/txt_nombre_usuario"
             android:layout_toEndOf="@id/img_usuario"
             android:layout_centerVertical="true"
@@ -32,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="@string/icon_uf1f8"
             android:textSize="30sp"
+            android:layout_marginEnd="15dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:fontFamily="@font/font_awesome_6_free_solid_900" />
@@ -41,6 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:layout_marginStart="60dp"
         android:orientation="horizontal">
         <LinearLayout
             android:id="@+id/lista_estrellas_comentario"
@@ -106,6 +110,7 @@
             android:id="@+id/comentario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
             android:text="@string/txt_comentario"
             android:textSize="16sp"
             android:textColor="@color/black" />

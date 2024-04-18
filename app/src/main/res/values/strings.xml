@@ -55,7 +55,7 @@
     <string name="la_contrasena_ingresada_no_coincide">La contraseña ingresada no coincide</string>
 
     <string name="lugares">Lugares</string>
-    <string name="registro">Registro</string>
+    <string name="historial">Historial</string>
 
     <!-- info lugar fragmento -->
     <string name="no_tiene_telefonos_contac">No tiene telefonos de contacto</string>
@@ -158,7 +158,7 @@
     <string name="txt_enviar">Enviar</string>
     <string name="comentario_enviado">Comentarios enviado</string>
     <string name="no_se_pudo_enviar_comentario">No se puedo envia el comentario</string>
-    <string name="txt_calificar_y_comentar">Califica y comenta</string>
+    <string name="txt_calificar">Calificar</string>
     <string name="no_puede_agregar_mas_de_un_comentario">No se puede agregar mas de un comentario</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

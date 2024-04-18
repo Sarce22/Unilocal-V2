@@ -17,10 +17,12 @@ import com.eam.unilocalv2.databinding.FragmentModLugaresBinding
 import com.eam.unilocalv2.modelo.EstadoLugar
 import com.eam.unilocalv2.modelo.Lugar
 
+
 class ModLugaresFragment : Fragment() {
 
     lateinit var binding: FragmentModLugaresBinding
     private var lista : ArrayList<Lugar> = ArrayList()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,

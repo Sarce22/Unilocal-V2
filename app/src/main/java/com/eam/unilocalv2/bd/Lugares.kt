@@ -53,6 +53,16 @@ object Lugares {
         lista.add( lugar6 )
     }
 
+    fun actualizarRegistros() {
+        lista.filter { it.estado == EstadoLugar.ACEPTADO || it.estado == EstadoLugar.RECHAZADO }
+            .forEach { registros.add(RegistroEstadoLugar(it, it.estado)) }
+    }
+
+    fun obtenerRegistros(): ArrayList<RegistroEstadoLugar>{
+        actualizarRegistros()
+        return registros
+    }
+
     fun listarPorEstado(estado:EstadoLugar):ArrayList<Lugar>{
         return lista.filter { l -> l.estado == estado }.toCollection(ArrayList())
     }
@@ -104,9 +114,6 @@ object Lugares {
         registros.add(RegistroEstadoLugar(lugar, nuevoEstado))
     }
 
-    fun obtenerRegistros(): ArrayList<RegistroEstadoLugar>{
-        return registros
-    }
 
     fun cambiarEstado(codigo:Int, nuevoEstado:EstadoLugar){
 
