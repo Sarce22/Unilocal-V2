@@ -43,7 +43,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/font_awesome_6_free_solid_900"
                         android:text="@string/icon_uf005"
-                        android:textSize="40sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/e_2"
@@ -51,7 +51,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/font_awesome_6_free_solid_900"
                         android:text="@string/icon_uf005"
-                        android:textSize="40sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/e_3"
@@ -59,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/font_awesome_6_free_solid_900"
                         android:text="@string/icon_uf005"
-                        android:textSize="40sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/e_4"
@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/font_awesome_6_free_solid_900"
                         android:text="@string/icon_uf005"
-                        android:textSize="40sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/e_5"
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/font_awesome_6_free_solid_900"
                         android:text="@string/icon_uf005"
-                        android:textSize="40sp" />
+                        android:textSize="30sp" />
 
                 </LinearLayout>
 

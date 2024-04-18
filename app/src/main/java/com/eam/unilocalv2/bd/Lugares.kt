@@ -54,6 +54,9 @@ object Lugares {
     }
 
     fun actualizarRegistros() {
+
+        registros.clear()
+
         lista.filter { it.estado == EstadoLugar.ACEPTADO || it.estado == EstadoLugar.RECHAZADO }
             .forEach { registros.add(RegistroEstadoLugar(it, it.estado)) }
     }
@@ -62,6 +65,7 @@ object Lugares {
         actualizarRegistros()
         return registros
     }
+
 
     fun listarPorEstado(estado:EstadoLugar):ArrayList<Lugar>{
         return lista.filter { l -> l.estado == estado }.toCollection(ArrayList())
