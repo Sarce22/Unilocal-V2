@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".actividades.LoginActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,6 +20,7 @@
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
+                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
                 android:src="@drawable/logo" />
 
@@ -26,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/lbl_iniciar_sesion"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -36,15 +38,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+
                 android:hint="@string/txt_ingrese_correo"
                 android:padding="10dp"
                 android:textColorHint="#757575" />
+
 
             <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+
                 android:hint="@string/txt_ingrese_contrasenia"
                 android:inputType="textPassword"
                 android:padding="10dp"
@@ -104,7 +109,6 @@
                     android:textStyle="bold|italic"/>
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -132,6 +136,9 @@
 
             </LinearLayout>
 
+
         </LinearLayout>
-    </RelativeLayout>
-</ScrollView>
+    </ScrollView>
+
+
+</RelativeLayout>
