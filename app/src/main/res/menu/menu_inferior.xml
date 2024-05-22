@@ -4,15 +4,15 @@
     <item
         android:id="@+id/menu_inicio"
         android:icon="@drawable/ic_home_50"
-        android:title="Inicio" />
+        android:title="@string/string_inico" />
 
     <item
         android:id="@+id/menu_mis_lugares"
         android:icon="@drawable/ic_map"
-        android:title="Mis lugares" />
+        android:title="@string/mis_lugares" />
 
     <item
         android:id="@+id/menu_favoritos"
         android:icon="@drawable/ic_heart"
-        android:title="Favoritos" />
+        android:title="@string/favoritos" />
 </menu>

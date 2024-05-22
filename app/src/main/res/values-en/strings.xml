@@ -1,0 +1,182 @@
+<resources>
+    <string name="app_name">Unilocal</string>
+    <string name="txt_ingrese_correo">Enter your email</string>
+    <string name="txt_ingrese_contrasenia">Enter your password</string>
+    <string name="btn_login">Login</string>
+    <string name="lbl_inicia_con">Or sign in with</string>
+    <string name="btn_goole">Google</string>
+    <string name="lbl_registro">Dont have an account yet</string>
+    <string name="lbl_password">Forgot your password?</string>
+    <string name="lbl_registrate">Sign up here</string>
+    <string name="lbl_iniciar_sesion">Log in</string>
+    <string name="lbl_recuperar">Recover it here</string>
+
+    <!-- Registration Fields -->
+    <string name="nombre">Name</string>
+    <string name="apellidos">Last Name</string>
+    <string name="nickname">NickName</string>
+    <string name="Correo">Email</string>
+    <string name="contrasenia">Password</string>
+    <string name="confimarContrasenia">Confirm password</string>
+    <string name="numCelular">Phone Number</string>
+    <string name="ciudad">City</string>
+    <string name="btn_registro">Register</string>
+    <string name="hora_de_inicio">Opening Time</string>
+    <string name="hora_de_cierre">Closing Time</string>
+    <string name="martes">Tuesday:</string>
+    <string name="lunes">Monday:</string>
+    <string name="miercoles">Wednesday</string>
+    <string name="nombre_del_lugar">Place Name</string>
+    <string name="direccion">Address:</string>
+    <string name="ingrese_la_direccion">Enter the address</string>
+    <string name="telefono">Phone:</string>
+    <string name="ingrese_el_telefono">Enter the phone number</string>
+    <string name="viernes">Friday</string>
+    <string name="guardar_lugar">Save Place</string>
+    <string name="jueves">Thursday</string>
+
+    <string name="informacion_personal">Personal Information</string>
+    <string name="notificacion">Notification</string>
+    <string name="mis_lugares">My Places</string>
+    <string name="guardados">Saved</string>
+    <string name="editar">edit</string>
+    <string name="perfil_usuario">User Profile</string>
+    <string name="ir_a_login">Go to login</string>
+
+    <!-- Validation Texts -->
+    <string name="es_obligatorio">This field is required</string>
+    <string name="maximo_caracteres">Maximum 10 characters</string>
+    <string name="datos_correctos">The data is correct</string>
+    <string name="datos_incorrectos">The data is incorrect</string>
+
+    <string name="campo_obligatorio">Mandatory field</string>
+    <string name="registrado_exitosamente">Registered successfully</string>
+    <string name="no_se_pudo_registrar">Could not register</string>
+    <string name="la_contrasena_ingresada_no_coincide">The entered password does not match</string>
+
+    <string name="lugares">Places</string>
+    <string name="historial">History</string>
+
+    <!-- Place Info Fragment -->
+    <string name="no_tiene_telefonos_contac">No contact phones available</string>
+
+    <!-- Place Item -->
+    <string name="txt_abierto">Open</string>
+
+    <!-- Place Adapter -->
+    <string name="cierra_a_las">Closes at</string>
+    <string name="cerrado">Closed</string>
+
+    <!-- Place Detail Activity -->
+    <string name="descripcion">Description</string>
+    <string name="resenas">Reviews</string>
+    <string name="fotos">Photos</string>
+
+    <!-- Create Place Fragment -->
+    <string name="txt_crear_lugar">Create place</string>
+    <string name="txt_nombre_lugar">Place name</string>
+    <string name="txt_descripcion_lugar">Place description</string>
+    <string name="txt_direccion_lugar">Place address</string>
+    <string name="txt_telefono_lugar">Place phone</string>
+    <string name="txt_btn_crear_lugar">Create place</string>
+    <string name="crear_lugar_hint_divider">-</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_horario">Schedule</string>
+    <string name="txt_seleccione">Select</string>
+
+    <!-- Registration Place Item Mod -->
+    <string name="txt_estado">STATUS</string>
+
+    <!-- Search Activity -->
+    <string name="txt_restaurante">Restaurant</string>
+    <string name="txt_hotel">Hotel</string>
+    <string name="txt_centro_comercial">Mall</string>
+    <string name="txt_tienda">Store</string>
+    <string name="txt_bar">Bar</string>
+    <string name="txt_cafe">Café</string>
+    <string name="txt_parque">Park</string>
+    <string name="txt_museo">Museum</string>
+
+    <!-- Recent Searches Fragment -->
+    <string name="txt_recientes">Recent</string>
+
+    <!-- Recent Item -->
+    <string name="txt_reciente">Recent</string>
+
+    <!-- Icons -->
+    <string name="icon_uf0ac">\uf0ac</string>
+    <string name="icon_uf095">\uf095</string>
+    <string name="icon_reloj">\uf05a</string>
+    <string name="icon_uf2e7">\uf2e7</string>
+    <string name="icon_uf594">\uf594</string>
+    <string name="icon_uf54e">\uf54e</string>
+    <string name="icon_uf07a">\uf07a</string>
+    <string name="icon_uf0fc">\uf0fc</string>
+    <string name="icon_uf7b6">\uf7b6</string>
+    <string name="icon_uf1bb">\uf1bb</string>
+    <string name="icon_uf66f">\uf66f</string>
+    <string name="icon_uf017">\uf017</string>
+    <string name="icon_uf1f8">\uf1f8</string>
+    <string name="icon_uf058">\uf058</string>
+    <string name="icon_uf057">\uf057</string>
+    <string name="icon_uf359">\uf359</string>
+    <string name="icon_uf005">\uf005</string>
+
+    <!-- Place Info Fragment -->
+    <string name="txt_detalles">Details</string>
+    <string name="txt_detalles_del_lugar">Place details</string>
+    <string name="txt_horarios">Opening Hours</string>
+    <string name="txt_cerrado">Closed</string>
+    <string name="txt_lunes">Monday</string>
+    <string name="txt_martes">Tuesday</string>
+    <string name="txt_miercoles">Wednesday</string>
+    <string name="txt_jueves">Thursday</string>
+    <string name="txt_viernes">Friday</string>
+    <string name="txt_sabado">Saturday</string>
+    <string name="txt_domingo">Sunday</string>
+    <string name="txt_no_abre">Does not open</string>
+    <string name="txt_contacto">Contact</string>
+    <string name="txt_contacto_del_lugar">Place contact</string>
+    <string name="txt_categoria">Category</string>
+
+    <string name="txt_categoria_del_lugar">Place category</string>
+
+    <!-- Main Mod Activity -->
+    <string name="txt_moderar">Administrator</string>
+
+    <string name="txt_busqueda">Search Place</string>
+    <string name="txt_mis_lugares">My Places</string>
+    <string name="txt_mis_favoritos">My favorites</string>
+    <string name="txt_calificacion">Rating</string>
+    <string name="txt_0">0</string>
+    <string name="txt_comentarios">Comments</string>
+    <string name="txt_seleccione_un_nivel_de_calificacion">Select a rating level</string>
+    <string name="txt_comentar">Enter comment</string>
+    <string name="txt_describa_su_experiencia_en_este_lugar">Describe your experience here</string>
+    <string name="txt_enviar">Send</string>
+    <string name="comentario_enviado">Comment sent</string>
+    <string name="no_se_pudo_enviar_comentario">Could not send comment</string>
+    <string name="txt_calificar">Rate</string>
+    <string name="no_puede_agregar_mas_de_un_comentario">You cannot add more than one comment</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="horario_de_lunes_no_valido">Invalid Monday schedule</string>
+    <string name="horario_de_martes_no_valido">Invalid Tuesday schedule</string>
+    <string name="horario_de_miercoles_no_valido">Invalid Wednesday schedule</string>
+    <string name="horario_de_jueves_no_valido">Invalid Thursday schedule</string>
+    <string name="horario_de_viernes_no_valido">Invalid Friday schedule</string>
+    <string name="horario_de_sabado_no_valido">Invalid Saturday schedule</string>
+    <string name="horario_de_domingo_no_valido">Invalid Sunday schedule\n</string>
+    <string name="lugar_creado_rev_mod">Place created</string>
+    <string name="txt_nombre_usuario">username</string>
+    <string name="txt_fecha">date</string>
+    <string name="txt_comentario">comment</string>
+    <string name="txt_0_comentarios">0 comments</string>
+    <string name="string_inico">Home</string>
+    <string name="favoritos">Favorites</string>
+</resources>

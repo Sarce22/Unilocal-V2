@@ -1,0 +1,180 @@
+<resources>
+    <string name="app_name">Unilocal</string>
+    <string name="txt_ingrese_correo">Entrez votre e-mail</string>
+    <string name="txt_ingrese_contrasenia">Entrez votre mot de passe</string>
+    <string name="btn_login">Connexion</string>
+    <string name="lbl_inicia_con">Ou connectez-vous avec</string>
+    <string name="btn_goole">Google</string>
+    <string name="lbl_registro">Vous navez pas encore de compte</string>
+    <string name="lbl_password">Mot de passe oublié ?</string>
+    <string name="lbl_registrate">Inscrivez-vous ici</string>
+    <string name="lbl_iniciar_sesion">Se connecter</string>
+    <string name="lbl_recuperar">Récupérez-le ici</string>
+
+    <!-- Champs d'inscription -->
+    <string name="nombre">Nom</string>
+    <string name="apellidos">Nom de famille</string>
+    <string name="nickname">Pseudo</string>
+    <string name="Correo">E-mail</string>
+    <string name="contrasenia">Mot de passe</string>
+    <string name="confimarContrasenia">Confirmez le mot de passe</string>
+    <string name="numCelular">Numéro de téléphone</string>
+    <string name="ciudad">Ville</string>
+    <string name="btn_registro">Sinscrire</string>
+    <string name="hora_de_inicio">Heure douverture</string>
+    <string name="hora_de_cierre">Heure de fermeture</string>
+    <string name="martes">Mardi :</string>
+    <string name="lunes">Lundi :</string>
+    <string name="miercoles">Mercredi</string>
+    <string name="nombre_del_lugar">Nom du lieu</string>
+    <string name="direccion">Adresse :</string>
+    <string name="ingrese_la_direccion">Entrez ladresse</string>
+    <string name="telefono">Téléphone :</string>
+    <string name="ingrese_el_telefono">Entrez le numéro de téléphone</string>
+    <string name="viernes">Vendredi</string>
+    <string name="guardar_lugar">Enregistrer le lieu</string>
+    <string name="jueves">Jeudi</string>
+
+    <string name="informacion_personal">Informations personnelles</string>
+    <string name="notificacion">Notification</string>
+    <string name="mis_lugares">Mes lieux</string>
+    <string name="guardados">Enregistrés</string>
+    <string name="editar">éditer</string>
+    <string name="perfil_usuario">Profil utilisateur</string>
+    <string name="ir_a_login">Aller à la connexion</string>
+
+    <!-- Textes de validation -->
+    <string name="es_obligatorio">Ce champ est obligatoire</string>
+    <string name="maximo_caracteres">Maximum de 10 caractères</string>
+    <string name="datos_correctos">Les données sont correctes</string>
+    <string name="datos_incorrectos">Les données sont incorrectes</string>
+
+    <string name="campo_obligatorio">Champ obligatoire</string>
+    <string name="registrado_exitosamente">Enregistré avec succès</string>
+    <string name="no_se_pudo_registrar">Impossible de sinscrire</string>
+    <string name="la_contrasena_ingresada_no_coincide">Le mot de passe saisi ne correspond pas</string>
+
+    <string name="lugares">Lieux</string>
+    <string name="historial">Historique</string>
+
+    <!-- Fragment d'info sur le lieu -->
+    <string name="no_tiene_telefonos_contac">Aucun téléphone de contact disponible</string>
+
+    <!-- Élément de lieu -->
+    <string name="txt_abierto">Ouvert</string>
+
+    <!-- Adaptateur de lieu -->
+    <string name="cierra_a_las">Ferme à</string>
+    <string name="cerrado">Fermé</string>
+
+    <!-- Activité de détail du lieu -->
+    <string name="descripcion">Description</string>
+    <string name="resenas">Avis</string>
+    <string name="fotos">Photos</string>
+
+    <!-- Fragment de création de lieu -->
+    <string name="txt_crear_lugar">Créer un lieu</string>
+    <string name="txt_nombre_lugar">Nom du lieu</string>
+    <string name="txt_descripcion_lugar">Description du lieu</string>
+    <string name="txt_direccion_lugar">Adresse du lieu</string>
+    <string name="txt_telefono_lugar">Téléphone du lieu</string>
+    <string name="txt_btn_crear_lugar">Créer un lieu</string>
+    <string name="crear_lugar_hint_divider">-</string>
+    <string name="hello_blank_fragment">Bonjour fragment vide</string>
+    <string name="txt_horario">Horaire</string>
+    <string name="txt_seleccione">Sélectionner</string>
+
+    <!-- Modèle d'élément d'enregistrement du lieu -->
+    <string name="txt_estado">ÉTAT</string>
+
+    <!-- Activité de recherche -->
+    <string name="txt_restaurante">Restaurant</string>
+    <string name="txt_hotel">Hôtel</string>
+    <string name="txt_centro_comercial">Centre commercial</string>
+    <string name="txt_tienda">Magasin</string>
+    <string name="txt_bar">Bar</string>
+    <string name="txt_cafe">Café</string>
+    <string name="txt_parque">Parc</string>
+    <string name="txt_museo">Musée</string>
+
+    <!-- Fragment de recherches récentes -->
+    <string name="txt_recientes">Récents</string>
+
+    <!-- Élément récent -->
+    <string name="txt_reciente">Récent</string>
+
+    <!-- Icônes -->
+    <string name="icon_uf0ac">\uf0ac</string>
+    <string name="icon_uf095">\uf095</string>
+    <string name="icon_reloj">\uf05a</string>
+    <string name="icon_uf2e7">\uf2e7</string>
+    <string name="icon_uf594">\uf594</string>
+    <string name="icon_uf54e">\uf54e</string>
+    <string name="icon_uf07a">\uf07a</string>
+    <string name="icon_uf0fc">\uf0fc</string>
+    <string name="icon_uf7b6">\uf7b6</string>
+    <string name="icon_uf1bb">\uf1bb</string>
+    <string name="icon_uf66f">\uf66f</string>
+    <string name="icon_uf017">\uf017</string>
+    <string name="icon_uf1f8">\uf1f8</string>
+    <string name="icon_uf058">\uf058</string>
+    <string name="icon_uf057">\uf057</string>
+    <string name="icon_uf359">\uf359</string>
+    <string name="icon_uf005">\uf005</string>
+
+    <!-- Fragment d'info sur le lieu -->
+    <string name="txt_detalles">Détails</string>
+    <string name="txt_detalles_del_lugar">Détails du lieu</string>
+    <string name="txt_horarios">Heures douverture</string>
+    <string name="txt_cerrado">Fermé</string>
+    <string name="txt_lunes">Lundi</string>
+    <string name="txt_martes">Mardi</string>
+    <string name="txt_miercoles">Mercredi</string>
+    <string name="txt_jueves">Jeudi</string>
+    <string name="txt_viernes">Vendredi</string>
+    <string name="txt_sabado">Samedi</string>
+    <string name="txt_domingo">Dimanche</string>
+    <string name="txt_no_abre">Ne pas ouvrir</string>
+    <string name="txt_contacto">Contact</string>
+    <string name="txt_contacto_del_lugar">Contact du lieu</string>
+    <string name="txt_categoria">Catégorie</string>
+
+    <string name="txt_categoria_del_lugar">Catégorie du lieu</string>
+
+    <!-- Activité principale de modération -->
+    <string name="txt_moderar">Administrateur</string>
+
+    <string name="txt_busqueda">Rechercher un lieu</string>
+    <string name="txt_mis_lugares">Mes lieux</string>
+    <string name="txt_mis_favoritos">Mes favoris</string>
+    <string name="txt_calificacion">Évaluation</string>
+    <string name="txt_0">0</string>
+    <string name="txt_comentarios">Commentaires</string>
+    <string name="txt_seleccione_un_nivel_de_calificacion">Sélectionnez un niveau dévaluation</string>
+    <string name="txt_comentar">Entrez un commentaire</string>
+    <string name="txt_describa_su_experiencia_en_este_lugar">Décrivez votre expérience ici</string>
+    <string name="txt_enviar">Envoyer</string>
+    <string name="comentario_enviado">Commentaire envoyé</string>
+    <string name="no_se_pudo_enviar_comentario">Impossible denvoyer le commentaire</string>
+    <string name="txt_calificar">Noter</string>
+    <string name="no_puede_agregar_mas_de_un_comentario">Vous ne pouvez pas ajouter plus dun commentaire</string>
+
+    <!-- Chaînes utilisées pour les fragments pour la navigation -->
+    <string name="first_fragment_label">Premier Fragment</string>
+    <string name="second_fragment_label">Deuxième Fragment</string>
+    <string name="next">Suivant</string>
+    <string name="previous">Précédent</string>
+
+    <string name="horario_de_lunes_no_valido">Horaire de lundi non valide</string>
+    <string name="horario_de_martes_no_valido">Horaire de mardi non valide</string>
+    <string name="horario_de_miercoles_no_valido">Horaire de mercredi non valide</string>
+    <string name="horario_de_jueves_no_valido">Horaire de jeudi non valide</string>
+    <string name="horario_de_viernes_no_valido">Horaire de vendredi non valide</string>
+    <string name="horario_de_sabado_no_valido">Horaire de samedi non valide</string>
+    <string name="horario_de_domingo_no_valido">Horaire de dimanche non valide\n</string>
+    <string name="lugar_creado_rev_mod">Lieu créé</string>
+    <string name="txt_nombre_usuario">nom dutilisateur</string>
+    <string name="txt_fecha">date</string>
+    <string name="txt_comentario">commentaire</string>
+    <string name="txt_0_comentarios">0 commentaires</string>
+</resources>
