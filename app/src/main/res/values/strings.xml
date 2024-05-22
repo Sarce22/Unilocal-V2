@@ -214,6 +214,8 @@
     <string name="txt_fecha">fecha</string>
     <string name="txt_comentario">comentario</string>
     <string name="txt_0_comentarios">0 comentarios</string>
+    <string name="string_inico">String/inicio</string>
+    <string name="favoritos">Favoritos</string>
 
 
 </resources>
