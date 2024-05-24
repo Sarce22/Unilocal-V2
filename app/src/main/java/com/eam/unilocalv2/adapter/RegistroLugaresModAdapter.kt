@@ -15,8 +15,7 @@ import com.eam.unilocalv2.R
 import com.eam.unilocalv2.modelo.EstadoLugar
 import com.eam.unilocalv2.modelo.RegistroEstadoLugar
 
-class RegistroLugaresModAdapter(var lista: ArrayList<RegistroEstadoLugar>): RecyclerView.Adapter<RegistroLugaresModAdapter.ViewHolder>()  {
-
+class RegistroLugaresModAdapter(var lista: ArrayList<RegistroEstadoLugar>): RecyclerView.Adapter<RegistroLugaresModAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -60,6 +59,5 @@ class RegistroLugaresModAdapter(var lista: ArrayList<RegistroEstadoLugar>): Recy
         }
 
     }
-
 
 }

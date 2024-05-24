@@ -82,7 +82,7 @@ class ComentariosLugarFragment : Fragment() {
     }
 
     companion object{
-        fun newInstance(codigoLugar:Int):ComentariosLugarFragment{
+        fun newInstance(codigoLugar: String):ComentariosLugarFragment{
             val args = Bundle()
             args.putInt("id_lugar", codigoLugar)
             val fragmento = ComentariosLugarFragment()
