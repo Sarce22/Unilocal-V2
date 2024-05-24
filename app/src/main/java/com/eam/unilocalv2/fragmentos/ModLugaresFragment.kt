@@ -16,8 +16,6 @@ import com.eam.unilocalv2.modelo.Lugar
 class ModLugaresFragment : Fragment() {
 
     lateinit var binding: FragmentModLugaresBinding
-    private var lista : ArrayList<Lugar> = ArrayList()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,10 +24,11 @@ class ModLugaresFragment : Fragment() {
     ): View? {
         binding = FragmentModLugaresBinding.inflate(inflater, container, false)
 
-        lista = LugaresService.listarPorEstado(EstadoLugar.SIN_REVISAR)
-        val adapter = LugaresModAdapter(lista)
-        binding.listaLugaresSinRevision.adapter = adapter
-        binding.listaLugaresSinRevision.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, true)
+        LugaresService.listarLugaresPorEstado(EstadoLugar.SIN_REVISAR){lista ->
+            val adapter = LugaresModAdapter(lista)
+            binding.listaLugaresSinRevision.adapter = adapter
+            binding.listaLugaresSinRevision.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, true)
+        }
 
         return binding.root
     }

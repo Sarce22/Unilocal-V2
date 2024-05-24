@@ -17,9 +17,11 @@ import com.eam.unilocalv2.bd.UsuariosService
 import com.eam.unilocalv2.fragmentos.ComentariosLugarFragment
 import com.eam.unilocalv2.modelo.Comentario
 
+
 class ComentariosAdapter(var lista:ArrayList<Comentario>, var codigoUsuario: String,var keyLugar: String): RecyclerView.Adapter<ComentariosAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(
+
+   override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
