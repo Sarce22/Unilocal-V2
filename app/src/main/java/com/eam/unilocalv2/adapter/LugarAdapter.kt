@@ -1,24 +1,18 @@
 package com.eam.unilocalv2.adapter
 
 import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.actividades.DetalleLugarActivity
 import com.eam.unilocalv2.actividades.GestionarLugarActivity
-import com.eam.unilocalv2.bd.Comentarios
 import com.eam.unilocalv2.modelo.Lugar
 
 class LugarAdapter(var lista:ArrayList<Lugar>, codigoUsuario: Int = -1): RecyclerView.Adapter<LugarAdapter.ViewHolder>() {

@@ -5,14 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.adapter.ViewPagerAdapterGestionarLugar
-import com.eam.unilocalv2.bd.Lugares
-import com.eam.unilocalv2.bd.Usuarios
+import com.eam.unilocalv2.bd.LugaresService
+import com.eam.unilocalv2.bd.UsuariosService
 import com.eam.unilocalv2.databinding.ActivityGestinarLugarBinding
-import com.eam.unilocalv2.modelo.EstadoLugar
 import com.eam.unilocalv2.modelo.Usuario
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -34,7 +32,7 @@ class GestionarLugarActivity : AppCompatActivity() {
 
         codigoLugar = intent.extras!!.getInt("codigo")
         if(codigoLugar != -1){
-            val lugar = Lugares.obtener(codigoLugar)
+            val lugar = LugaresService.obtener(codigoLugar)
             val nombreLugar = lugar!!.nombre
             binding.nombreLugar.text = nombreLugar
 
@@ -42,7 +40,7 @@ class GestionarLugarActivity : AppCompatActivity() {
             val sp = getSharedPreferences("sesion", Context.MODE_PRIVATE)
             val codigoUsuario = sp.getInt("codigo_usuario", -1)
             if(codigoUsuario != -1){
-                val usuario = Usuarios.buscar(codigoUsuario)
+                val usuario = UsuariosService.buscar(codigoUsuario)
                 if(usuario != null){
                     fav = usuario.buscarFavorito(codigoLugar)
                     if(fav){
@@ -57,7 +55,7 @@ class GestionarLugarActivity : AppCompatActivity() {
 
             //Botón eliminar
             binding.btnEliminarLugar.setOnClickListener{
-                Lugares.eliminar(lugar)
+                LugaresService.eliminar(lugar)
                 startActivity(Intent(this, MainActivity::class.java))
                 this.finish()
             }

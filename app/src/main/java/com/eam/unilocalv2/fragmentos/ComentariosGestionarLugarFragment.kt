@@ -12,8 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.adapter.ComentariosAdapter
-import com.eam.unilocalv2.bd.Comentarios
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentComentariosGestionarLugarBinding
 import com.eam.unilocalv2.modelo.Comentario
 
@@ -40,7 +39,7 @@ class ComentariosGestionarLugarFragment : Fragment() {
         val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
         val codigoUsuario = sp.getInt("codigo_usuario", -1)
 
-        val lugar = Lugares.obtener(codigoLugar)
+        val lugar = LugaresService.obtener(codigoLugar)
 
         if(lugar != null){
             //Cargar info

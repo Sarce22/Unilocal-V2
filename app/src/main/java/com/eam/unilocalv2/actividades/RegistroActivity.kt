@@ -3,12 +3,9 @@ package com.eam.unilocalv2.actividades
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.eam.unilocalv2.R
-import com.eam.unilocalv2.bd.Usuarios
+import com.eam.unilocalv2.bd.UsuariosService
 import com.eam.unilocalv2.databinding.ActivityRegistroBinding
 import com.eam.unilocalv2.modelo.Usuario
 
@@ -83,7 +80,7 @@ class RegistroActivity : AppCompatActivity() {
         if(nombre.isNotEmpty() && nickname.isNotEmpty() && email.isNotEmpty() && ciudad.isNotEmpty() && password.isNotEmpty() && confirmarpassword.isNotEmpty() && apellidos.isNotEmpty() && celular.isNotEmpty()){
             if(password==confirmarpassword){
                 binding.editTextConfirmarContraseA.error = null
-                if(Usuarios.agregar(Usuario(0,nombre,apellidos,celular,nickname,ciudad, email,password))){
+                if(UsuariosService.agregar(Usuario(0,nombre,apellidos,celular,nickname,ciudad, email,password))){
                     Toast.makeText(this, getString(R.string.registrado_exitosamente), Toast.LENGTH_LONG).show()
                     startActivity(Intent(this, LoginActivity::class.java))
                 }else{

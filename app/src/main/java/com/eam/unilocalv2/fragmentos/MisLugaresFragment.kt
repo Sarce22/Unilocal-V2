@@ -6,17 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.actividades.BusquedaActivity
 import com.eam.unilocalv2.actividades.MainActivity
 import com.eam.unilocalv2.adapter.LugarAdapter
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentMisLugaresBinding
 import com.eam.unilocalv2.modelo.Lugar
 
@@ -44,7 +40,7 @@ class MisLugaresFragment : Fragment() {
         val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
         val codigoUsuario = sp.getInt("codigo_usuario", -1)
         if(codigoUsuario != -1){
-            lista = Lugares.listarPorPropietario(codigoUsuario)
+            lista = LugaresService.listarPorPropietario(codigoUsuario)
             val adapter = LugarAdapter(lista, codigoUsuario)
             binding.listaMisLugares.adapter = adapter
             binding.listaMisLugares.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)

@@ -13,8 +13,7 @@ import androidx.fragment.app.Fragment
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.actividades.DetalleLugarActivity
 import com.eam.unilocalv2.adapter.ViewPagerAdapterLugar
-import com.eam.unilocalv2.bd.Comentarios
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentComentarBinding
 import com.eam.unilocalv2.modelo.Comentario
 import com.eam.unilocalv2.modelo.Lugar
@@ -41,7 +40,7 @@ class ComentarFragment : Fragment() {
     ): View? {
         binding = FragmentComentarBinding.inflate(inflater, container, false)
 
-        lugar = Lugares.obtener(codigoLugar)
+        lugar = LugaresService.obtener(codigoLugar)
 
         if(lugar != null){
             binding.btnComentar.setOnClickListener {
