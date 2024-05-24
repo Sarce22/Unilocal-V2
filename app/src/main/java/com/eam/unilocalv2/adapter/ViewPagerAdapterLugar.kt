@@ -1,20 +1,14 @@
 package com.eam.unilocalv2.adapter
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.eam.unilocalv2.R
 import com.eam.unilocalv2.fragmentos.ComentarFragment
 import com.eam.unilocalv2.fragmentos.ComentariosLugarFragment
 import com.eam.unilocalv2.fragmentos.ImagenesLugarFragment
 import com.eam.unilocalv2.fragmentos.InfoLugarFragment
 
-class ViewPagerAdapterLugar(var fragment: FragmentActivity, var codigoLugar: Int, var pos1Fragment: Int): FragmentStateAdapter(fragment) {
+class ViewPagerAdapterLugar(var fragment: FragmentActivity, var codigoLugar: String, var pos1Fragment: Int): FragmentStateAdapter(fragment) {
 
     companion object{
         var cod: Int = -1

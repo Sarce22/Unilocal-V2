@@ -11,6 +11,15 @@
     <string name="lbl_iniciar_sesion">Iniciar sesión</string>
     <string name="lbl_recuperar">Recuperala aquí</string>
 
+
+    <!-- registro -->
+    <string name="txt_bienvenido" translatable="false">¡Bienvenid@!</string>
+    <string name="txt_nombre" translatable="false">Nombre</string>
+    <string name="txt_nickname" translatable="false">Usuario</string>
+    <string name="txt_ciudad" translatable="false">Ciudad de residencia</string>
+    <string name="txt_registrarse_btn" translatable="false">Registrarse</string>
+
+
     <!-- Campos Registro -->
     <string name="nombre">Nombre</string>
     <string name="apellidos">Apellidos</string>
@@ -78,11 +87,14 @@
     <string name="txt_descripcion_lugar">Descripción del lugar</string>
     <string name="txt_direccion_lugar">Dirección del lugar</string>
     <string name="txt_telefono_lugar">Teléfono del lugar</string>
+    <string name="txt_imagenes" translatable="false">Imagenes</string>
     <string name="txt_btn_crear_lugar">Crear lugar</string>
     <string name="crear_lugar_hint_divider">-</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_horario">Horario</string>
     <string name="txt_seleccione">Seleccione</string>
+    <string name="lugar_creado_error" translatable="false">Hubo un error al crear el lugar</string>
+    <string name="lugar_creado_imagenes_error" translatable="false">Por favor seleccione al menos una imágen</string>
 
     <!-- item registro lugar mod -->
     <string name="txt_estado">ESTADO</string>
@@ -121,7 +133,7 @@
     <string name="icon_uf057">\uf057</string>
     <string name="icon_uf359">\uf359</string>
     <string name="icon_uf005">\uf005</string>
-
+    <string name="icon_uf3c5" translatable="false">\uf3c5</string>
     <!-- fragmento info lugar -->
     <string name="txt_detalles">Detalles</string>
     <string name="txt_detalles_del_lugar">Detalles del lugar</string>

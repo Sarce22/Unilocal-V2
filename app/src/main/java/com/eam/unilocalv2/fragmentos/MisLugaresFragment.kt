@@ -37,13 +37,14 @@ class MisLugaresFragment : Fragment() {
         binding.btnNuevoLugar.setOnClickListener { requireActivity().supportFragmentManager.beginTransaction().replace( R.id.contenido_principal, CrearLugarFragment() )
             .addToBackStack(MainActivity.MENU_CREAR_LUGAR).commit() }
 
-        val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
-        val codigoUsuario = sp.getInt("codigo_usuario", -1)
-        if(codigoUsuario != -1){
-            lista = LugaresService.listarPorPropietario(codigoUsuario)
-            val adapter = LugarAdapter(lista, codigoUsuario)
-            binding.listaMisLugares.adapter = adapter
-            binding.listaMisLugares.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+        val user = FirebaseAuth.getInstance().currentUser
+        if(user != null){
+            val codigoUsuario = user.uid
+            LugaresService.listarLugaresPorPropietario(codigoUsuario){lista ->
+                val adapter = LugarAdapter(lista, codigoUsuario)
+                binding.listaMisLugares.adapter = adapter
+                binding.listaMisLugares.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+            }
         }
 
         return binding.root

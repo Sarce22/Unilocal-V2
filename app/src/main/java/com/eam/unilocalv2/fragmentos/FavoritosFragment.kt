@@ -19,7 +19,6 @@ import com.eam.unilocalv2.modelo.Lugar
 class FavoritosFragment : Fragment() {
 
     lateinit var binding: FragmentFavoritosBinding
-    private var lista : ArrayList<Lugar> = ArrayList()
 
 
     override fun onCreateView(
@@ -35,14 +34,14 @@ class FavoritosFragment : Fragment() {
 
         binding.btnSearch.setOnClickListener { startActivity(Intent(requireActivity(), BusquedaActivity::class.java)) }
 
-        val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
-        val codigoUsuario = sp.getInt("codigo_usuario", -1)
-        if(codigoUsuario != -1){
-            lista = LugaresService.obtenerFavoritos(codigoUsuario)
-
-            val adapter = LugarAdapter(lista, codigoUsuario)
-            binding.listaMisFavoritos.adapter = adapter
-            binding.listaMisFavoritos.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+        val user = FirebaseAuth.getInstance().currentUser
+        if(user != null){
+            val codigoUsuario = user.uid
+            LugaresService.obtenerLugaresFavoritos(codigoUsuario){lista ->
+                val adapter = LugarAdapter(lista, codigoUsuario)
+                binding.listaMisFavoritos.adapter = adapter
+                binding.listaMisFavoritos.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+            }
         }
 
         return binding.root
