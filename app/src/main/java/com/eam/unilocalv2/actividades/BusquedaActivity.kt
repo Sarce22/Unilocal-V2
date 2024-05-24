@@ -4,13 +4,9 @@ import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentManager
-import com.eam.unilocalv2.R
-import com.eam.unilocalv2.bd.Usuarios
+import com.eam.unilocalv2.bd.UsuariosService
 import com.eam.unilocalv2.databinding.ActivityBusquedaBinding
 import com.eam.unilocalv2.fragmentos.BusquedasRecientesFragment
 import com.eam.unilocalv2.fragmentos.ResultadoBusquedaFragment
@@ -36,7 +32,7 @@ class BusquedaActivity : AppCompatActivity() {
                     val sp = getSharedPreferences("sesion", Context.MODE_PRIVATE)
                     val codigoUsuario = sp.getInt("codigo_usuario", -1)
                     if(codigoUsuario != -1){
-                        Usuarios.buscar(codigoUsuario)!!.agregarBusqueda(busqueda)
+                        UsuariosService.buscar(codigoUsuario)!!.agregarBusqueda(busqueda)
                     }
                     //Ejecutar fragmento busqueda
                     supportFragmentManager.beginTransaction()

@@ -1,20 +1,15 @@
 package com.eam.unilocalv2.adapter
 
 import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.actividades.ModDetalleLugarActivity
 import com.eam.unilocalv2.actividades.ModMainActivity
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.modelo.EstadoLugar
 import com.eam.unilocalv2.modelo.Lugar
 
@@ -49,13 +44,13 @@ class LugaresModAdapter(var lista: ArrayList<Lugar>): RecyclerView.Adapter<Lugar
             nombre.text = lugar.nombre
             btnAprobar.setOnClickListener {
                 lugar.estado = EstadoLugar.ACEPTADO
-                Lugares.agregarRegistro(lugar, EstadoLugar.ACEPTADO)
+                LugaresService.agregarRegistro(lugar, EstadoLugar.ACEPTADO)
                 lista.remove(lugar)
                 ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
             }
             btnRechazar.setOnClickListener {
                 lugar.estado = EstadoLugar.RECHAZADO
-                Lugares.agregarRegistro(lugar, EstadoLugar.RECHAZADO)
+                LugaresService.agregarRegistro(lugar, EstadoLugar.RECHAZADO)
                 lista.remove(lugar)
                 ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
             }

@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.adapter.ViewPagerAdapterLugarMod
 import com.eam.unilocalv2.adapter.ViewPagerAdapterMod
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.ActivityModDetalleLugarBinding
 import com.eam.unilocalv2.modelo.EstadoLugar
 import com.google.android.material.tabs.TabLayoutMediator
@@ -25,20 +25,20 @@ class ModDetalleLugarActivity : AppCompatActivity() {
         codigoLugar = intent.extras!!.getInt("codigo")
 
         if(codigoLugar != -1){
-            val lugar = Lugares.obtener(codigoLugar)
+            val lugar = LugaresService.obtener(codigoLugar)
             if(lugar != null){
                 binding.nombreLugar.text = lugar.nombre
 
                 binding.btnVolver.setOnClickListener { this.finish() }
                 binding.btnAprobar.setOnClickListener {
                     lugar.estado = EstadoLugar.ACEPTADO
-                    Lugares.agregarRegistro(lugar, EstadoLugar.ACEPTADO)
+                    LugaresService.agregarRegistro(lugar, EstadoLugar.ACEPTADO)
                     ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
                     this.finish()
                 }
                 binding.btnRechazar.setOnClickListener {
                     lugar.estado = EstadoLugar.RECHAZADO
-                    Lugares.agregarRegistro(lugar, EstadoLugar.RECHAZADO)
+                    LugaresService.agregarRegistro(lugar, EstadoLugar.RECHAZADO)
                     ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
                     this.finish()
                 }

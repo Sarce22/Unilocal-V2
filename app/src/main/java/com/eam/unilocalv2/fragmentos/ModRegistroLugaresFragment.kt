@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eam.unilocalv2.adapter.RegistroLugaresModAdapter
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentModRegistroLugaresBinding
 import com.eam.unilocalv2.modelo.RegistroEstadoLugar
 
@@ -23,7 +23,7 @@ class ModRegistroLugaresFragment : Fragment() {
     ): View? {
         binding = FragmentModRegistroLugaresBinding.inflate(inflater, container, false)
 
-        lista = Lugares.obtenerRegistros()
+        lista = LugaresService.obtenerRegistros()
         val adapter = RegistroLugaresModAdapter(lista)
         binding.registroLugares.adapter = adapter
         binding.registroLugares.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, true)

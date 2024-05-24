@@ -3,14 +3,11 @@ package com.eam.unilocalv2.actividades
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.adapter.ViewPagerAdapterLugar
-import com.eam.unilocalv2.bd.Lugares
-import com.eam.unilocalv2.bd.Usuarios
+import com.eam.unilocalv2.bd.LugaresService
+import com.eam.unilocalv2.bd.UsuariosService
 import com.eam.unilocalv2.databinding.ActivityDetalleLugarBinding
 import com.eam.unilocalv2.modelo.Usuario
 import com.google.android.material.tabs.TabLayoutMediator
@@ -35,7 +32,7 @@ class DetalleLugarActivity : AppCompatActivity() {
         codigoLugar = intent.extras!!.getInt("codigo")
 
         if(codigoLugar != -1){
-            val nombreLugar = Lugares.obtener(codigoLugar)!!.nombre
+            val nombreLugar = LugaresService.obtener(codigoLugar)!!.nombre
             binding.nombreLugar.text = nombreLugar
             //Adapter
             binding.viewPager.adapter = ViewPagerAdapterLugar(this, codigoLugar, 1)
@@ -51,7 +48,7 @@ class DetalleLugarActivity : AppCompatActivity() {
             val sp = getSharedPreferences("sesion", Context.MODE_PRIVATE)
             val codigoUsuario = sp.getInt("codigo_usuario", -1)
             if(codigoUsuario != -1){
-                val usuario = Usuarios.buscar(codigoUsuario)
+                val usuario = UsuariosService.buscar(codigoUsuario)
                 if(usuario != null){
                     fav = usuario.buscarFavorito(codigoLugar)
                     if(fav){

@@ -16,9 +16,9 @@ import androidx.fragment.app.Fragment
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.actividades.BusquedaActivity
 import com.eam.unilocalv2.actividades.MainActivity
-import com.eam.unilocalv2.bd.Categorias
-import com.eam.unilocalv2.bd.Ciudades
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.CategoriasService
+import com.eam.unilocalv2.bd.CiudadesService
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentCrearLugarBinding
 import com.eam.unilocalv2.modelo.Categoria
 import com.eam.unilocalv2.modelo.Ciudad
@@ -49,8 +49,8 @@ class CrearLugarFragment : Fragment() {
     ): View? {
         binding = FragmentCrearLugarBinding.inflate(inflater, container, false)
 
-        ciudades = Ciudades.listar()
-        categorias = Categorias.listar()
+        ciudades = CiudadesService.listar()
+        categorias = CategoriasService.listar()
 
         cargarHorarios()
         cargarCiudades()
@@ -256,7 +256,7 @@ class CrearLugarFragment : Fragment() {
                 }
 
 
-                Lugares.crear(nuevoLugar)
+                LugaresService.crear(nuevoLugar)
 
                 Toast.makeText(requireActivity(), getString(R.string.lugar_creado_rev_mod), Toast.LENGTH_LONG).show()
 

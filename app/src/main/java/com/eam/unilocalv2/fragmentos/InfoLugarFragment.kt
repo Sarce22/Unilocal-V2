@@ -4,15 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.eam.unilocalv2.R
-import com.eam.unilocalv2.bd.Categorias
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.CategoriasService
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentInfoLugarBinding
 import com.eam.unilocalv2.modelo.DiaSemana
 import com.eam.unilocalv2.modelo.Lugar
@@ -38,7 +34,7 @@ class InfoLugarFragment : Fragment() {
     ): View? {
         binding = FragmentInfoLugarBinding.inflate(inflater, container, false)
 
-        lugar = Lugares.obtener(codigoLugar)
+        lugar = LugaresService.obtener(codigoLugar)
 
         if(lugar != null){
             //Cargar info layout
@@ -86,7 +82,7 @@ class InfoLugarFragment : Fragment() {
         }
         binding.contactoLugar.text = telefonos
 
-        val categoria = Categorias.obtener(lugar.idCategoria)
+        val categoria = CategoriasService.obtener(lugar.idCategoria)
         binding.iconoCategoria.text = categoria!!.icono
         binding.categoriaLugar.text = categoria!!.nombre
 

@@ -6,17 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.actividades.BusquedaActivity
 import com.eam.unilocalv2.actividades.MainActivity
 import com.eam.unilocalv2.adapter.LugarAdapter
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentFavoritosBinding
 import com.eam.unilocalv2.modelo.Lugar
 
@@ -42,7 +38,7 @@ class FavoritosFragment : Fragment() {
         val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
         val codigoUsuario = sp.getInt("codigo_usuario", -1)
         if(codigoUsuario != -1){
-            lista = Lugares.obtenerFavoritos(codigoUsuario)
+            lista = LugaresService.obtenerFavoritos(codigoUsuario)
 
             val adapter = LugarAdapter(lista, codigoUsuario)
             binding.listaMisFavoritos.adapter = adapter

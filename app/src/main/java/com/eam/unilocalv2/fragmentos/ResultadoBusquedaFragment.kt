@@ -6,12 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.eam.unilocalv2.R
 import com.eam.unilocalv2.adapter.LugarAdapter
-import com.eam.unilocalv2.bd.Lugares
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentResultadoBusquedaBinding
 import com.eam.unilocalv2.modelo.Lugar
 import java.lang.NumberFormatException
@@ -42,12 +40,12 @@ class ResultadoBusquedaFragment : Fragment() {
             if(busqueda!!.contains("categoria/")){
                 try {
                     val idCategoria: Int = busqueda!!.substringAfter("/").toInt()
-                    lista = Lugares.buscarCategoria(idCategoria)
+                    lista = LugaresService.buscarCategoria(idCategoria)
                 }catch (e: NumberFormatException){
                     Log.e("ResultadoBusquedaFragment", "No se puede convertir el String a Int: \n${e.message}")
                 }
             } else {
-                lista = Lugares.buscarNombre(busqueda!!)
+                lista = LugaresService.buscarNombre(busqueda!!)
             }
             val adapter: LugarAdapter
             val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
