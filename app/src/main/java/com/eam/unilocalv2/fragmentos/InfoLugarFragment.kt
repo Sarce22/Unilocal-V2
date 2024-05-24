@@ -148,9 +148,11 @@ class InfoLugarFragment : Fragment(), OnMapReadyCallback {
     }
 
     companion object{
+
         private const val DELAY_MS: Long = 0 //delay en milisegundos antes de que la tarea se ejecute por primera vez
         private const val PERIOD_MS: Long = 3500 //tiempo en milisegundos entre invocaciones sucesivas de la tarea
         fun newInstance(codigoLugar:String):InfoLugarFragment{
+
             val args = Bundle()
             args.putString("id_lugar", codigoLugar)
             val fragmento = InfoLugarFragment()

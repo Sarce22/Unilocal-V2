@@ -10,12 +10,14 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.actividades.DetalleLugarActivity
 import com.eam.unilocalv2.actividades.GestionarLugarActivity
+import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.modelo.Lugar
 
-class LugarAdapter(var lista:ArrayList<Lugar>, codigoUsuario: Int = -1): RecyclerView.Adapter<LugarAdapter.ViewHolder>() {
+class LugarAdapter(var lista:ArrayList<Lugar>, codigoUsuario: String = ""): RecyclerView.Adapter<LugarAdapter.ViewHolder>() {
     val codigoUsuario = codigoUsuario
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,7 +38,7 @@ class LugarAdapter(var lista:ArrayList<Lugar>, codigoUsuario: Int = -1): Recycle
         val comentarios: TextView = itemView.findViewById(R.id.comentarios_lugar)
         val calificacion: TextView = itemView.findViewById(R.id.calificacion_lugar)
         val listaEstrellas: LinearLayout = itemView.findViewById(R.id.lista_estrellas)
-        var codigoLugar: Int = 0
+        var codigoLugar: String = ""
         var lugarActual: Lugar? = null
 
         init {
@@ -46,7 +48,12 @@ class LugarAdapter(var lista:ArrayList<Lugar>, codigoUsuario: Int = -1): Recycle
         fun bind(lugar: Lugar){
             lugarActual = lugar
             nombre.text = lugar.nombre
-            codigoLugar = lugar.id
+            codigoLugar = lugar.key
+            if(lugar.imagenes.isNotEmpty()){
+                Glide.with(itemView.context)
+                    .load(lugar.imagenes[0])
+                    .into(imagen)
+            }
             val abierto = lugar.estaAbierto()
             if(abierto){
                 estado.setTextColor(ContextCompat.getColor(itemView.context, R.color.green))
@@ -56,28 +63,30 @@ class LugarAdapter(var lista:ArrayList<Lugar>, codigoUsuario: Int = -1): Recycle
                 estado.text = "Cerrado"
             }
 
-            val  cantComentarios = Comentarios.listar(lugar.id).size
+            LugaresService.listarComentarios(lugar.key){ lista ->
+                val  cantComentarios = lista.size
 
-            if(cantComentarios==1){
-                comentarios.text = "${cantComentarios.toString()} comentario"
-            } else {
-                comentarios.text = "${cantComentarios.toString()} comentarios"
-            }
+                if(cantComentarios==1){
+                    comentarios.text = "${cantComentarios.toString()} comentario"
+                } else {
+                    comentarios.text = "${cantComentarios.toString()} comentarios"
+                }
 
-            val cal: Int = lugar.obtenerCalificacionPromedio(Comentarios.listar(lugar.id))
+                val cal: Int = lugar.obtenerCalificacionPromedio(lista)
 
-            calificacion.text = cal.toString()
+                calificacion.text = cal.toString()
 
-            if(cal != 0){
-                for (i in 0 until cal){
-                    (listaEstrellas[i] as TextView).setTextColor(ContextCompat.getColor(listaEstrellas.context, R.color.yellow))
+                if(cal != 0){
+                    for (i in 0 until cal){
+                        (listaEstrellas[i] as TextView).setTextColor(ContextCompat.getColor(listaEstrellas.context, R.color.yellow))
+                    }
                 }
             }
 
         }
 
         override fun onClick(p0: View?) {
-            if(codigoUsuario != -1 && lugarActual != null && lugarActual!!.idCreador == codigoUsuario){
+            if(codigoUsuario != "" && lugarActual != null && lugarActual!!.idCreador == codigoUsuario){
                 var intent = Intent(nombre.context, GestionarLugarActivity::class.java)
                 intent.putExtra("codigo", codigoLugar)
                 nombre.context.startActivity(intent)

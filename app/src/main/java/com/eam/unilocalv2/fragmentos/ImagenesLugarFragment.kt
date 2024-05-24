@@ -1,6 +1,7 @@
 package com.eam.unilocalv2.fragmentos
 
 import android.os.Bundle
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentImagenesLugarBinding
+
 
 class ImagenesLugarFragment : Fragment() {
 
@@ -47,7 +49,9 @@ class ImagenesLugarFragment : Fragment() {
     }
 
     companion object{
+
         fun newInstance(codigoLugar:String):ImagenesLugarFragment{
+
             val args = Bundle()
             args.putString("id_lugar", codigoLugar)
             val fragmento = ImagenesLugarFragment()

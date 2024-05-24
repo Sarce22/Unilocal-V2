@@ -11,7 +11,7 @@ import com.eam.unilocalv2.fragmentos.InfoLugarFragment
 class ViewPagerAdapterLugar(var fragment: FragmentActivity, var codigoLugar: String, var pos1Fragment: Int): FragmentStateAdapter(fragment) {
 
     companion object{
-        var cod: Int = -1
+        var cod: String = ""
         lateinit var fragmentoPos1: Fragment
     }
 
