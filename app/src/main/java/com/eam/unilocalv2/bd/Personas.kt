@@ -1,7 +1,5 @@
 package com.eam.unilocalv2.bd
 
-import com.eam.unilocalv2.modelo.Persona
-
 object Personas {
 
     fun login(correo:String, password:String): Persona?{

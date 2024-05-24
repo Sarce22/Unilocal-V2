@@ -1,7 +1,5 @@
 package com.eam.unilocalv2.bd
 
-import com.eam.unilocalv2.modelo.Moderador
-
 object Moderador {
 
     private val lista:ArrayList<Moderador> = ArrayList()

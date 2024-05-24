@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.eam.unilocalv2.bd.Personas
 import com.eam.unilocalv2.databinding.ActivityLoginBinding
-import com.eam.unilocalv2.modelo.Moderador
 import com.eam.unilocalv2.modelo.Usuario
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
