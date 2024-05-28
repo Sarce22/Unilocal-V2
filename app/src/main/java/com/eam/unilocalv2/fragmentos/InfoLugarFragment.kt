@@ -1,11 +1,18 @@
 package com.eam.unilocalv2.fragmentos
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.eam.unilocalv2.R
@@ -115,9 +122,9 @@ class InfoLugarFragment : Fragment(), OnMapReadyCallback {
         }
 
         var telefonos = ""
-        if(lugar.telefonos.isNotEmpty()){
-            for (i in 0 until lugar.telefonos.size){
-                if(i < lugar.telefonos.size-1){
+        if (lugar.telefonos.isNotEmpty()) {
+            for (i in 0 until lugar.telefonos.size) {
+                if (i < lugar.telefonos.size - 1) {
                     telefonos += "${lugar.telefonos.get(i)}\n"
                 } else {
                     telefonos += "${lugar.telefonos.get(i)}"
@@ -127,6 +134,13 @@ class InfoLugarFragment : Fragment(), OnMapReadyCallback {
             telefonos = getString(R.string.no_tiene_telefonos_contac)
         }
         binding.contactoLugar.text = telefonos
+
+        binding.buttonCall.setOnClickListener {
+            Log.d("info_llamada", "El número de teléfono es: $telefonos")
+            if (lugar.telefonos.isNotEmpty()) {
+                iniciarLlamada(lugar.telefonos[0])
+            }
+        }
 
         CategoriasService.obtener(lugar.keyCategoria){categoria ->
             if(categoria != null){
@@ -147,10 +161,40 @@ class InfoLugarFragment : Fragment(), OnMapReadyCallback {
 
     }
 
+
+    private fun iniciarLlamada(numeroTelefono: String) {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CALL_PHONE), REQUEST_CALL_PERMISSION)
+        } else {
+            val intent = Intent(Intent.ACTION_CALL)
+            Log.d("TAG", "El número de teléfono es: $numeroTelefono")
+
+            intent.data = Uri.parse("tel:$numeroTelefono")
+            startActivity(intent)
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CALL_PERMISSION) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                lugar?.telefonos?.get(0)?.let { iniciarLlamada(it) }
+            } else {
+                if (shouldShowRequestPermissionRationale(Manifest.permission.CALL_PHONE)) {
+                    Toast.makeText(requireContext(), "Por favor, habilite el permiso para realizar llamadas", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Habilite el permiso de llamada en la configuración de la aplicación", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
     companion object{
 
-        private const val DELAY_MS: Long = 0 //delay en milisegundos antes de que la tarea se ejecute por primera vez
-        private const val PERIOD_MS: Long = 3500 //tiempo en milisegundos entre invocaciones sucesivas de la tarea
+        private const val DELAY_MS: Long = 0
+        private const val PERIOD_MS: Long = 3500
+        private const val REQUEST_CALL_PERMISSION = 0
         fun newInstance(codigoLugar:String):InfoLugarFragment{
 
             val args = Bundle()
