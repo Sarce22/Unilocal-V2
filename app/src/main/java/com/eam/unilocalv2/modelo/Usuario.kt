@@ -6,12 +6,14 @@ class Usuario () {
     var nombre: String = ""
     var nickname: String = ""
     var ciudad: String = ""
+    var celular: String = ""
     var correo: String = ""
     var rol: Rol = Rol.USUARIO
     var busquedasRecientes: ArrayList<String> = ArrayList()
     var lugaresFavoritos:ArrayList<String> = ArrayList()
 
-    constructor(nombre: String, nickname:String, ciudad:String, correo: String, rol: Rol) : this() {
+    constructor(celular: String, nombre: String, nickname:String, ciudad:String, correo: String, rol: Rol) : this() {
+        this.celular = celular
         this.nombre = nombre
         this.nickname = nickname
         this.ciudad = ciudad

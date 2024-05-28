@@ -13,6 +13,7 @@ import com.eam.unilocalv2.R
 import com.eam.unilocalv2.adapter.ComentariosAdapter
 import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentComentariosGestionarLugarBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class ComentariosGestionarLugarFragment : Fragment() {
 

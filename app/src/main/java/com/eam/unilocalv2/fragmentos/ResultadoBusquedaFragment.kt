@@ -12,6 +12,7 @@ import com.eam.unilocalv2.adapter.LugarAdapter
 import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentResultadoBusquedaBinding
 import com.eam.unilocalv2.modelo.Lugar
+import com.google.firebase.auth.FirebaseAuth
 import java.lang.NumberFormatException
 
 class ResultadoBusquedaFragment : Fragment() {
@@ -35,33 +36,41 @@ class ResultadoBusquedaFragment : Fragment() {
     ): View? {
         binding = FragmentResultadoBusquedaBinding.inflate(inflater, container, false)
 
+        val user = FirebaseAuth.getInstance().currentUser
         lista = ArrayList()
         if(busqueda != null && busqueda!!.isNotEmpty()){
             if(busqueda!!.contains("categoria/")){
-                try {
-                    val idCategoria: Int = busqueda!!.substringAfter("/").toInt()
-                    lista = LugaresService.buscarCategoria(idCategoria)
-                }catch (e: NumberFormatException){
-                    Log.e("ResultadoBusquedaFragment", "No se puede convertir el String a Int: \n${e.message}")
+                val keyCategoria: String = busqueda!!.substringAfter("/")
+                LugaresService.listarPorCategoria(keyCategoria){lugares ->
+                    lista = lugares
+                    val adapter: LugarAdapter
+                    adapter = if(user != null){
+                        val codigoUsuario = user.uid
+                        LugarAdapter(lista, codigoUsuario)
+                    } else {
+                        LugarAdapter(lista)
+                    }
+                    binding.listaLugares.adapter = adapter
+                    binding.listaLugares.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
                 }
             } else {
-                lista = LugaresService.buscarNombre(busqueda!!)
+                LugaresService.buscarPorNombre(busqueda!!){lugares ->
+                    lista = lugares
+                    val adapter: LugarAdapter
+                    adapter = if(user != null){
+                        val codigoUsuario = user.uid
+                        LugarAdapter(lista, codigoUsuario)
+                    } else {
+                        LugarAdapter(lista)
+                    }
+                    binding.listaLugares.adapter = adapter
+                    binding.listaLugares.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+                }
             }
-            val adapter: LugarAdapter
-            val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
-            val codigoUsuario = sp.getInt("codigo_usuario", -1)
-            adapter = if(codigoUsuario != -1){
-                LugarAdapter(lista, codigoUsuario)
-            } else {
-                LugarAdapter(lista)
-            }
-            binding.listaLugares.adapter = adapter
-            binding.listaLugares.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
         }
 
         return binding.root
     }
-
 
     companion object{
         fun newInstance(busqueda:String):ResultadoBusquedaFragment{

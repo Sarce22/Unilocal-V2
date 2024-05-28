@@ -26,6 +26,7 @@
     <string name="nickname">NickName</string>
     <string name="Correo">Correo electrónico</string>
     <string name="contrasenia">Contraseña</string>
+    <string name="seis_caracteres_minimo" translatable="false">Mínimo 6 caracteres</string>
     <string name="confimarContrasenia">Confirmar contraseña</string>
     <string name="numCelular">Número de teléfono</string>
     <string name="ciudad">Ciudad</string>
@@ -64,6 +65,8 @@
     <string name="la_contrasena_ingresada_no_coincide">La contraseña ingresada no coincide</string>
 
     <string name="lugares">Lugares</string>
+    <!-- mod main activity -->
+    <string name="registro" translatable="false">Registro</string>
     <string name="historial">Historial</string>
 
     <!-- info lugar fragmento -->
@@ -226,8 +229,15 @@
     <string name="txt_fecha">fecha</string>
     <string name="txt_comentario">comentario</string>
     <string name="txt_0_comentarios">0 comentarios</string>
-    <string name="string_inico">String/inicio</string>
-    <string name="favoritos">Favoritos</string>
+    <string name="string_inico" translatable="false">String/inicio</string>
+    <string name="favoritos" translatable="false">Favoritos</string>
 
+    <!-- Gestionar lugar activity -->
+    <string name="lugar_eliminado" translatable="false">Lugar eliminado correctamente</string>
+    <string name="lugar_no_eliminado" translatable="false">No se pudo eliminar el lugar</string>
 
+    <!-- ModDetalleLugar activity -->
+    <string name="lugar_aceptado" translatable="false">Lugar aceptado</string>
+    <string name="lugar_rechazado" translatable="false">Lugar rechazado</string>
+    <string name="error_lugar_estado" translatable="false">Hubo un error al cambiar el estado</string>
 </resources>

@@ -7,7 +7,7 @@ import com.eam.unilocalv2.fragmentos.ComentariosGestionarLugarFragment
 import com.eam.unilocalv2.fragmentos.ImagenesLugarFragment
 import com.eam.unilocalv2.fragmentos.InfoLugarFragment
 
-class ViewPagerAdapterGestionarLugar(var fragment: FragmentActivity, var codigoLugar: Int): FragmentStateAdapter(fragment) {
+class ViewPagerAdapterGestionarLugar(var fragment: FragmentActivity, var codigoLugar: String): FragmentStateAdapter(fragment) {
     override fun getItemCount() = 3
 
     override fun createFragment(position: Int): Fragment {

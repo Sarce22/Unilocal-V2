@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eam.unilocalv2.R
+import com.eam.unilocalv2.adapter.ImagenesAdapter
 import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentImagenesLugarBinding
 

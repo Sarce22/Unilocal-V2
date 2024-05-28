@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eam.unilocalv2.adapter.BusquedasRecientesAdapter
 import com.eam.unilocalv2.bd.UsuariosService
 import com.eam.unilocalv2.databinding.FragmentBusquedasRecientesBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class BusquedasRecientesFragment : Fragment() {
     lateinit var binding: FragmentBusquedasRecientesBinding

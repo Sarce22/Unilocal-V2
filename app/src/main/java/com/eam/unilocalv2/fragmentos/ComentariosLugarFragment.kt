@@ -20,6 +20,7 @@ import com.eam.unilocalv2.bd.LugaresService
 import com.eam.unilocalv2.databinding.FragmentComentariosLugarBinding
 import com.eam.unilocalv2.modelo.Comentario
 import com.eam.unilocalv2.modelo.Lugar
+import com.google.firebase.auth.FirebaseAuth
 
 class ComentariosLugarFragment : Fragment() {
 
