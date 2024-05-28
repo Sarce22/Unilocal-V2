@@ -11,10 +11,11 @@ import com.eam.unilocalv2.bd.UsuariosService
 import com.eam.unilocalv2.databinding.ActivityDetalleLugarBinding
 import com.eam.unilocalv2.modelo.Usuario
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
 
 class DetalleLugarActivity : AppCompatActivity() {
 
-    var codigoLugar: Int = -1
+    var codigoLugar: String? = ""
     var fav: Boolean = false
 
     companion object{
@@ -29,13 +30,20 @@ class DetalleLugarActivity : AppCompatActivity() {
         binding.btnVolver.setOnClickListener { this.finish() }
         binding.btnSearch.setOnClickListener { startActivity(Intent(this, BusquedaActivity::class.java)) }
 
-        codigoLugar = intent.extras!!.getInt("codigo")
+        codigoLugar = intent.extras!!.getString("codigo")
 
-        if(codigoLugar != -1){
-            val nombreLugar = LugaresService.obtener(codigoLugar)!!.nombre
-            binding.nombreLugar.text = nombreLugar
+        if(codigoLugar != null){
+            var nombreLugar = ""
+            LugaresService.obtener(codigoLugar!!){lugar ->
+                if(lugar != null){
+                    nombreLugar = lugar.nombre
+                    binding.nombreLugar.text = nombreLugar
+                } else {
+                    nombreLugar = "ERROR"
+                }
+            }
             //Adapter
-            binding.viewPager.adapter = ViewPagerAdapterLugar(this, codigoLugar, 1)
+            binding.viewPager.adapter = ViewPagerAdapterLugar(this, codigoLugar!!, 1)
             TabLayoutMediator(binding.tabs, binding.viewPager){ tab, pos ->
                 when(pos){
                     0 -> tab.text = getString(R.string.txt_detalles)
@@ -45,19 +53,18 @@ class DetalleLugarActivity : AppCompatActivity() {
             }.attach()
 
             //Boton favorito
-            val sp = getSharedPreferences("sesion", Context.MODE_PRIVATE)
-            val codigoUsuario = sp.getInt("codigo_usuario", -1)
-            if(codigoUsuario != -1){
-                val usuario = UsuariosService.buscar(codigoUsuario)
-                if(usuario != null){
-                    fav = usuario.buscarFavorito(codigoLugar)
-                    if(fav){
-                        binding.imgFav.setImageResource(R.drawable.ic_favorite_40)
-                    } else {
-                        binding.imgFav.setImageResource(R.drawable.ic_favorite_border_40)
+            val user = FirebaseAuth.getInstance().currentUser
+            if(user != null){
+                UsuariosService.buscar(user.uid){u ->
+                    if(u != null){
+                        fav = u.buscarFavorito(codigoLugar!!)
+                        if(fav){
+                            binding.imgFav.setImageResource(R.drawable.ic_favorite_40)
+                        } else {
+                            binding.imgFav.setImageResource(R.drawable.ic_favorite_border_40)
+                        }
+                        binding.imgFav.setOnClickListener { clickFav(u) }
                     }
-
-                    binding.imgFav.setOnClickListener { clickFav(usuario) }
                 }
             }
         }
@@ -65,13 +72,21 @@ class DetalleLugarActivity : AppCompatActivity() {
 
     fun clickFav(usuario : Usuario){
         if(fav){
-            usuario.lugaresFavoritos.remove(codigoLugar)
-            binding.imgFav.setImageResource(R.drawable.ic_favorite_border_40)
-            fav = false
+            usuario.eliminarFavorito(codigoLugar!!)
+            UsuariosService.actualizarUsuario(usuario){res ->
+                if(res){
+                    binding.imgFav.setImageResource(R.drawable.ic_favorite_border_40)
+                    fav = false
+                }
+            }
         } else {
-            usuario.lugaresFavoritos.add(codigoLugar)
-            binding.imgFav.setImageResource(R.drawable.ic_favorite_40)
-            fav = true
+            usuario.agregarFavorito(codigoLugar!!)
+            UsuariosService.actualizarUsuario(usuario){res ->
+                if(res){
+                    binding.imgFav.setImageResource(R.drawable.ic_favorite_40)
+                    fav = true
+                }
+            }
         }
     }
 }

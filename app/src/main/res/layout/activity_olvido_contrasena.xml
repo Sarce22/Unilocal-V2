@@ -46,7 +46,7 @@
             android:layout_marginTop="8dp"/>
 
         <EditText
-            android:id="@+id/editTextCorreo"
+            android:id="@+id/correo_usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/Correo"

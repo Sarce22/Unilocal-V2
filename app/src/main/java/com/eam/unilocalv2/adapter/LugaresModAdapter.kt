@@ -23,42 +23,49 @@ class LugaresModAdapter(var lista: ArrayList<Lugar>): RecyclerView.Adapter<Lugar
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind( lista[position] )
+        holder.bind(lista[position])
     }
 
     override fun getItemCount() = lista.size
 
-    inner class ViewHolder(var itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ViewHolder(var itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
 
         val nombre: TextView = itemView.findViewById(R.id.nombre_lugar)
         val btnAprobar: TextView = itemView.findViewById(R.id.btn_aprobar)
         val btnRechazar: TextView = itemView.findViewById(R.id.btn_rechazar)
-        var codigoLugar: Int = -1
+        var codigoLugar: String = ""
 
         init {
             itemView.setOnClickListener(this)
         }
 
-        fun bind(lugar: Lugar){
-            codigoLugar = lugar.id
+        fun bind(lugar: Lugar) {
+            codigoLugar = lugar.key
             nombre.text = lugar.nombre
             btnAprobar.setOnClickListener {
-                lugar.estado = EstadoLugar.ACEPTADO
-                LugaresService.agregarRegistro(lugar, EstadoLugar.ACEPTADO)
-                lista.remove(lugar)
-                ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
+                LugaresService.editarEstadoLugar(lugar, EstadoLugar.ACEPTADO) { res ->
+                    if (res) {
+                        lista.remove(lugar)
+                        ModMainActivity.binding.viewPager.adapter =
+                            ViewPagerAdapterMod(ModMainActivity.act)
+                    }
+                }
             }
             btnRechazar.setOnClickListener {
-                lugar.estado = EstadoLugar.RECHAZADO
-                LugaresService.agregarRegistro(lugar, EstadoLugar.RECHAZADO)
-                lista.remove(lugar)
-                ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
+                LugaresService.editarEstadoLugar(lugar, EstadoLugar.RECHAZADO) { res ->
+                    if (res) {
+                        lista.remove(lugar)
+                        ModMainActivity.binding.viewPager.adapter =
+                            ViewPagerAdapterMod(ModMainActivity.act)
+                    }
+                }
             }
         }
 
         override fun onClick(p0: View?) {
             //Enviar al lugar
-            if(codigoLugar != -1){
+            if (codigoLugar != "") {
                 var intent = Intent(nombre.context, ModDetalleLugarActivity::class.java)
                 intent.putExtra("codigo", codigoLugar)
                 nombre.context.startActivity(intent)

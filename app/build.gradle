@@ -49,10 +49,14 @@ dependencies {
     implementation libs.material.v190
     implementation libs.androidx.navigation.fragment.ktx
     implementation libs.androidx.navigation.ui.ktx
-
+    implementation libs.glide
     implementation libs.firebase.firestore
     implementation libs.play.services.maps.v1810
     implementation libs.play.services.location.v1800
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.auth.ktx.v2003
+    implementation libs.firebase.storage
+
 
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit

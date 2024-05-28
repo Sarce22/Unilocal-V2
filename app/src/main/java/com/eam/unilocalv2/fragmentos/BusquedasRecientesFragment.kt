@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eam.unilocalv2.adapter.BusquedasRecientesAdapter
 import com.eam.unilocalv2.bd.UsuariosService
 import com.eam.unilocalv2.databinding.FragmentBusquedasRecientesBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class BusquedasRecientesFragment : Fragment() {
     lateinit var binding: FragmentBusquedasRecientesBinding
-    private var lista : ArrayList<String> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,14 +22,29 @@ class BusquedasRecientesFragment : Fragment() {
     ): View? {
         binding = FragmentBusquedasRecientesBinding.inflate(inflater, container, false)
 
-        val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
+        val user = FirebaseAuth.getInstance().currentUser
+        if(user != null){
+            UsuariosService.buscar(user.uid){usuario ->
+                if(usuario != null){
+                    val lista: ArrayList<String> = usuario.busquedasRecientes
+                    val adapter = BusquedasRecientesAdapter(lista)
+                    binding.listaBusquedasRecientes.adapter = adapter
+                    binding.listaBusquedasRecientes.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, true)
+                }
+            }
+        }
+
+        /*val sp = requireActivity().getSharedPreferences("sesion", Context.MODE_PRIVATE)
         val codigoUsuario = sp.getInt("codigo_usuario", -1)
         if(codigoUsuario != -1){
-            lista = UsuariosService.buscar(codigoUsuario)!!.busquedasRecientes
-            val adapter = BusquedasRecientesAdapter(lista)
-            binding.listaBusquedasRecientes.adapter = adapter
-            binding.listaBusquedasRecientes.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, true)
-        }
+            val usuario = Usuarios.buscar(codigoUsuario)
+            if(usuario != null){
+                lista = usuario.busquedasRecientes
+                val adapter = BusquedasRecientesAdapter(lista)
+                binding.listaBusquedasRecientes.adapter = adapter
+                binding.listaBusquedasRecientes.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, true)
+            }
+        }*/
 
         return binding.root
     }

@@ -1,6 +1,7 @@
 package com.eam.unilocalv2.actividades
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.adapter.ViewPagerAdapterLugarMod
@@ -15,41 +16,57 @@ import com.google.android.material.tabs.TabLayoutMediator
 class ModDetalleLugarActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityModDetalleLugarBinding
-    var codigoLugar: Int = -1
+    var codigoLugar: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityModDetalleLugarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        codigoLugar = intent.extras!!.getInt("codigo")
+        codigoLugar = intent.extras!!.getString("codigo", "")
 
-        if(codigoLugar != -1){
-            val lugar = LugaresService.obtener(codigoLugar)
-            if(lugar != null){
-                binding.nombreLugar.text = lugar.nombre
+        if(codigoLugar != ""){
+            LugaresService.obtener(codigoLugar){lug ->
+                val lugar = lug
+                if(lugar != null){
+                    binding.nombreLugar.text = lugar.nombre
 
-                binding.btnVolver.setOnClickListener { this.finish() }
-                binding.btnAprobar.setOnClickListener {
-                    lugar.estado = EstadoLugar.ACEPTADO
-                    LugaresService.agregarRegistro(lugar, EstadoLugar.ACEPTADO)
-                    ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
-                    this.finish()
-                }
-                binding.btnRechazar.setOnClickListener {
-                    lugar.estado = EstadoLugar.RECHAZADO
-                    LugaresService.agregarRegistro(lugar, EstadoLugar.RECHAZADO)
-                    ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
-                    this.finish()
-                }
-
-                binding.viewPager.adapter = ViewPagerAdapterLugarMod(this, codigoLugar)
-                TabLayoutMediator(binding.tabs, binding.viewPager){ tab, pos ->
-                    when(pos){
-                        0 -> tab.text = getString(R.string.descripcion)
-                        1 -> tab.text = getString(R.string.fotos)
+                    binding.btnVolver.setOnClickListener { this.finish() }
+                    binding.btnAprobar.setOnClickListener {
+                        LugaresService.editarEstadoLugar(lugar, EstadoLugar.ACEPTADO){res ->
+                            if(res){
+                                Toast.makeText(this, getString(R.string.lugar_aceptado), Toast.LENGTH_LONG).show()
+                                ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
+                                this.finish()
+                            }else{
+                                Toast.makeText(this, getString(R.string.error_lugar_estado), Toast.LENGTH_LONG).show()
+                                ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
+                                this.finish()
+                            }
+                        }
                     }
-                }.attach()
+                    binding.btnRechazar.setOnClickListener {
+                        LugaresService.editarEstadoLugar(lugar, EstadoLugar.RECHAZADO){res ->
+                            if(res){
+                                Toast.makeText(this, getString(R.string.lugar_rechazado), Toast.LENGTH_LONG).show()
+                                ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
+                                this.finish()
+                            }else{
+                                Toast.makeText(this, getString(R.string.error_lugar_estado), Toast.LENGTH_LONG).show()
+                                ModMainActivity.binding.viewPager.adapter = ViewPagerAdapterMod(ModMainActivity.act)
+                                this.finish()
+                            }
+                        }
+                    }
+
+                    binding.viewPager.adapter = ViewPagerAdapterLugarMod(this, codigoLugar)
+                    TabLayoutMediator(binding.tabs, binding.viewPager){ tab, pos ->
+                        when(pos){
+                            0 -> tab.text = getString(R.string.descripcion)
+                            1 -> tab.text = getString(R.string.fotos)
+                        }
+                    }.attach()
+                }
             }
         }
 

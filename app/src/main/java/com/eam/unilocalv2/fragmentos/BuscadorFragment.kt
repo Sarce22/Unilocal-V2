@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.eam.unilocalv2.R
 import com.eam.unilocalv2.actividades.BusquedaActivity
+import com.eam.unilocalv2.actividades.CuentaActivity
 import com.eam.unilocalv2.actividades.LoginActivity
 import com.eam.unilocalv2.databinding.FragmentBuscadorBinding
 
@@ -21,15 +22,14 @@ class BuscadorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBuscadorBinding.inflate(inflater, container, false)
+
+        binding.imgUsuario.setOnClickListener { redireccionarCuenta() }
         binding.buscador.setOnClickListener { startActivity(Intent(requireActivity(), BusquedaActivity::class.java)) }
-        binding.imgUsuario.setOnClickListener { cerrarSesion() }
+
         return binding.root
     }
 
-    fun cerrarSesion(){
-        val sh = requireActivity().getSharedPreferences("session", Context.MODE_PRIVATE).edit()
-        sh.clear()
-        sh.commit()
-        startActivity(Intent(requireActivity(), LoginActivity::class.java))
+    fun redireccionarCuenta(){
+        startActivity(Intent(requireActivity(), CuentaActivity::class.java))
     }
 }
