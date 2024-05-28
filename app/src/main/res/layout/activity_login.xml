@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="80dp"
                 android:text="@string/lbl_iniciar_sesion"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -57,31 +57,15 @@
 
             <Button
                 android:id="@+id/buttonLogin"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center"
                 android:backgroundTint="@color/dark_green"
                 android:text="@string/btn_login"
                 android:textColor="#FFFFFF"/>
 
-            <TextView
-                android:id="@+id/textOiniciaCon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                android:text="@string/lbl_inicia_con"
-                android:textColor="#757575"
-                android:textSize="14sp" />
 
-            <Button
-                android:id="@+id/buttonGoogleLogin"
-                android:layout_width="190dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/purple"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="@string/btn_goole" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
